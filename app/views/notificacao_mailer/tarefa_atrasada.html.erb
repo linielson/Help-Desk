@@ -1,0 +1,28 @@
+<p>
+  Olá <%= @etapa.tecnico.nome_completo.titleize %>!<br />
+  Você está com uma etapa <b>ATRASADA</b>!
+</p>
+<hr />
+<p>
+  <b>Tarefa:</b> <%= @etapa.tarefa_id %><br />
+  <b>Entrega:</b> <%= l @etapa.tarefa.entrega %><br />
+  <b>Cliente:</b> <%= @etapa.tarefa.cliente.nome.titleize %><br />
+</p>
+<hr />
+<p>
+  Você deve executar a seguinte etapa:<br />
+  <br />
+  <b>Etapa:</b> <%= "#{@etapa.codigo}-#{@etapa.nome.titleize}" %><br />
+  <b>Descrição:</b> <br />
+  <%= @etapa.descricao %><br />
+  <br />
+  Clique <b><%= link_to 'aqui', tarefa_tarefa_etapa_url(@etapa.tarefa, @etapa) %></b> para acessar a sua etapa!
+</p>
+<hr />
+<p>
+  <b>ATENÇÃO:</b><br />
+    <ul>
+      <li>Verifique suas prioridades e prazos, tente minimizar o atraso e os prejuízos!</li>
+      <li>Após o término marque a etapa como concluída!</li>
+    </ul>
+</p>

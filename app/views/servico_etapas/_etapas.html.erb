@@ -1,0 +1,18 @@
+<% if etapas.present? %>
+  <div>
+    <table class="table">
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+      </tr>
+    <% etapas.each do |etapa| %>
+      <tr>
+        <td><%= etapa.nome.titleize %></td>
+        <td><%= truncate etapa.descricao, length: 75 %></td>
+      </tr>
+    <% end %>  
+    </table>
+  </div>
+<% else %>
+   <b>Serviço sem etapas.</b>
+<% end %>

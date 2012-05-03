@@ -1,0 +1,29 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">Pesquisa</h2>
+    <div class="inner">
+
+    <%= form_tag servicos_path, method: :get, class: :form do %>
+
+      <div>
+        <div class="group" style="float:left; width: 60px;">
+          <%= label_tag "", "Código", class: :label %>
+          <%= number_field_tag 'scodigo', nil, in: 1...1000, step: false, class: :text_field %>
+        </div>
+
+        <div class="group">
+          <%= label_tag "", "Nome", class: :label %>
+          <%= search_field_tag 'snome', nil, placeholder: 'Digite o nome a ser pesquisado...', style: 'width: 350px;', class: :text_field %>
+        </div>
+      </div>
+
+      <div class="group navform wat-cf">
+        <button class="button" type="submit">
+          <%= image_tag("pesquisar.png") %> Pesquisar
+        </button>
+      </div>
+
+    <% end %>
+    </div>
+  </div>
+</div>

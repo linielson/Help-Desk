@@ -1,0 +1,36 @@
+<p>
+  Olá <%= @tarefa.tecnico.nome_completo.titleize %>!<br />
+  A tarefa que você abriu está <b>ATRASADA</b>!
+</p>
+<p>
+  Verifique com os técnicos que estão executando está tarefa, qual o motivo do atraso.<br />
+  Verifique as prioridades e prazos, e tente minimizar o atraso e os prejuízos!
+</p>
+<hr />
+<p>
+  <b>Tarefa:</b> <%= link_to @tarefa.id, tarefa_url(@tarefa) %><br />
+  <b>Entrega:</b> <%= l @tarefa.entrega %><br />
+  <b>Cliente:</b> <%= @tarefa.cliente.nome.titleize %><br />
+</p>
+<hr />
+<p>
+  <b>ETAPAS</b><br />
+  <table>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Técnico</th>
+      <th>Descrição</th>
+      <th>Status</th>
+    </tr>
+  <% @tarefa.tarefa_etapas.each do |etapa| %>
+    <tr>
+      <td><%= etapa.codigo %></td>
+      <td><%= etapa.nome.titleize %></td>
+      <td><%= etapa.tecnico.nome_completo.titleize %></td>
+      <td><%= truncate etapa.descricao %></td>
+      <td><%= etapa.status_nome %></td>
+    </tr>
+  <% end %>
+  </table>
+</p>

@@ -1,0 +1,47 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Lista", servicos_path %></li>
+      <li><%= link_to "Novo", new_servico_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Serviços</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">Código</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @servicos.each do |servico| %>
+
+          <tr class="<%= cycle("odd", "even") %>">
+            <td align="center"><%= servico.id %></td>
+            <td><%= link_to servico.nome.titleize, servico_path(servico) %></td>
+            <td><%= truncate servico.descricao, length: 75 %></td>
+            <td class="last">
+              <%= link_to image_tag("etapas.png"), servico_servico_etapas_path(servico) %>
+              <%= link_to image_tag("consultar.png"), servico %> 
+              <%= link_to image_tag("editar.png"), edit_servico_path(servico) %> 
+              <%= link_to image_tag("excluir.png"), servico,
+                confirm: 'Você realmente deseja excluir este serviço?', method: :delete %>
+            </td>
+          </tr>
+          
+        <% end %>
+      </table>
+      
+      <div class="actions-bar wat-cf">
+        <div class="actions"> </div> 
+        <%= will_paginate @servicos %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<%= render 'pesquisa' %>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

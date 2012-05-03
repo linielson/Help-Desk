@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  codigo: 1
+  nome: MyString
+  descricao: MyText
+  status: MyString
+  inicio: 2012-04-14 17:33:18
+  fim: 2012-04-14 17:33:18
+  tecnico_id: 1
+  tarefa: 
+
+two:
+  codigo: 1
+  nome: MyString
+  descricao: MyText
+  status: MyString
+  inicio: 2012-04-14 17:33:18
+  fim: 2012-04-14 17:33:18
+  tecnico_id: 1
+  tarefa: 

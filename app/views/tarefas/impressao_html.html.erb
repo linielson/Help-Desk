@@ -1,0 +1,44 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">Tarefas Impressão</h2>
+    <div class="inner">
+
+      <% if @tarefas.present? %>
+        <table border="1" class="table">
+          <tr>
+            <th class="first">Código</th>
+            <th>Técnico</th>
+            <th>Projeto</th>
+            <th>Cliente</th>
+            <th>Emissão</th>
+            <th>Solicitação</th>
+            <th>Serviço</th>
+            <th>Entrega</th>
+            <th>Fechamento</th>
+            <th>Status</th>
+            <th>Nº Etapas</th>
+          </tr>
+        <% @tarefas.each do |tarefa| %>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td align="center"><%= tarefa.id %></td>
+            <td><%= tarefa.tecnico.nome_completo.titleize %></td>
+            <% if tarefa.projeto.present? %>
+              <td><%= tarefa.projeto.nome.titleize %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td><%= tarefa.cliente.nome.titleize %></td>
+            <td align="center"><%= l tarefa.emissao %></td>
+            <td><%= truncate tarefa.solicitacao %></td>
+            <td><%= tarefa.servico.nome.titleize %></td>
+            <td align="center"><%= l tarefa.entrega %></td>
+            <td align="center"><%= tarefa.fechamento.try :strftime, "%d/%m/%Y" %></td>
+            <td align="center"><%= tarefa.status_nome %></td>
+            <td align="center"><%= tarefa.tarefa_etapas.size %></td>
+          </tr>
+        <% end %>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

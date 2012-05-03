@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  solicitacao: MyText
+  emissao: 2012-04-14
+  fechamento: 2012-04-14
+  entrega: 2012-04-14
+  status: MyString
+  servico: 
+  cliente_id: 1
+  tecnico_id: 1
+  usuario: 
+
+two:
+  solicitacao: MyText
+  emissao: 2012-04-14
+  fechamento: 2012-04-14
+  entrega: 2012-04-14
+  status: MyString
+  servico: 
+  cliente_id: 1
+  tecnico_id: 1
+  usuario: 

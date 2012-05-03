@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tecnico_id: 1
+  data: 2012-04-15
+  inicio: 2012-04-15 15:10:57
+  fim: 2012-04-15 15:10:57
+  tarefa: 
+
+two:
+  tecnico_id: 1
+  data: 2012-04-15
+  inicio: 2012-04-15 15:10:57
+  fim: 2012-04-15 15:10:57
+  tarefa: 

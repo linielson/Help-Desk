@@ -1,0 +1,48 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">Relatórios</h2>
+    <div class="inner">
+
+    <%= form_tag gerar_path, class: :form do %>
+
+      <div class="group">
+        <%= radio_button_tag 'relatorio', "01", true %>
+        <%= label_tag "relatorio_01", "01 - Número de atendimentos por técnico", class: :label_radio %>
+      </div>
+
+      <div class="group">
+        <%= radio_button_tag 'relatorio', "02" %>
+        <%= label_tag "relatorio_02", "02 - Número de tarefas por serviço", class: :label_radio %>
+      </div>
+
+      <div class="group">
+        <%= radio_button_tag 'relatorio', "03" %>
+        <%= label_tag "relatorio_03", "03 - Número de tarefas por cliente", class: :label_radio %>
+      </div>
+
+      <div class="group">
+        <%= radio_button_tag 'relatorio', "04" %>
+        <%= label_tag "relatorio_04", "04 - Etapas pendentes por técnico", class: :label_radio %>
+      </div>
+
+      <div class="group">
+        <%= radio_button_tag 'relatorio', "05" %>
+        <%= label_tag "relatorio_05", "05 - Tarefas atrasadas", class: :label_radio %>
+      </div>
+
+      <div class="group">
+        <%= radio_button_tag 'relatorio', "06" %>
+        <%= label_tag "relatorio_06", "06 - Etapas", class: :label_radio %>
+      </div>
+
+      <div class="group navform wat-cf">
+        <button class="button" type="submit">
+          Avançar <%= image_tag("avancar.png") %>
+        </button>
+      </div>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>

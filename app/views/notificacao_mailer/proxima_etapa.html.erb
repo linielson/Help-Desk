@@ -1,0 +1,36 @@
+<p>
+  Olá <%= @etapa.tecnico.nome_completo.titleize %>!<br />
+  Você acaba de receber uma nova etapa de uma tarefa.
+</p>
+<hr />
+<p>
+  <b>Tarefa:</b> <%= @etapa.tarefa_id %><br />
+  <b>Emissão:</b> <%= l @etapa.tarefa.emissao %><br />
+  <% if @etapa.tarefa.entrega.present? %>
+    <b>Entrega:</b> <%= l @etapa.tarefa.entrega %><br />
+  <% else %>
+    <b>Entrega:</b> Não informado<br />
+  <% end %>
+  <b>Cliente:</b> <%= @etapa.tarefa.cliente.nome.titleize %><br />
+  <b>Solicitação:</b><br />
+  <%= @etapa.tarefa.solicitacao %><br />
+</p>
+<hr />
+<p>
+  Você deve executar a seguinte etapa:<br />
+  <br />
+  <b>Etapa:</b> <%= "#{@etapa.codigo}-#{@etapa.nome.titleize}" %><br />
+  <b>Descrição:</b> <br />
+  <%= @etapa.descricao %><br />
+  <br />
+  Clique <b><%= link_to 'aqui', tarefa_tarefa_etapa_url(@etapa.tarefa, @etapa) %></b> para acessar a sua etapa!<br />
+</p>                            
+<hr />
+<p>
+  <b>Observações:</b><br />
+    <ul>
+      <li>Verifique o prazo de entrega!</li>
+      <li>Não esqueça de iniciar a etapa!</li>
+      <li>Após o término marque a etapa como concluída!</li>
+    </ul>
+</p>

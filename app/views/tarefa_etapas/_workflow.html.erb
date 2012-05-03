@@ -1,0 +1,152 @@
+<%= stylesheet_link_tag "workflow" %>
+
+<% if etapas.present? %>
+
+
+<% if etapas.size > 10 %>
+  <div style="width: 996px; overflow-x: auto">
+<% else %>
+  <div style="width: 996px;">
+<% end %>
+  
+  <div style="float:left; width: <%= "#{tamanho_total}px"%>; ">
+
+  <% nao_possui_etapa_atrasada = true %>
+  <% etapas.each do |etapa| %>
+
+    <% if etapa == etapas.first %>
+      <% imagem = "inicio_" %>
+      <% imprimir_pixels = (pixels > 0) %>
+    <% elsif etapa == etapas.last %>
+      <% imagem = "fim_" %>
+      <% imprimir_pixels = false %>
+    <% else %>
+      <% imagem = "meio_" %>
+      <% imprimir_pixels = (pixels > 0) %>
+    <% end %>
+
+    <% if etapas.size == 1 %>
+      <% imagem = "um_" %>
+      <% imprimir_pixels = false %>
+    <% end %>
+
+    <div id="coluna">
+
+      <div id="linha_titulo">
+        <%= truncate etapa.nome.titleize, length: 40 %>
+      </div>
+      
+      <div id="linha_tecnico">
+        <%= truncate etapa.tecnico.nome_completo.titleize, length: 20 %>
+      </div>
+
+    <% if etapa.concluida? %>
+
+      <div id="linha_imagem">
+        <div id="<%= "#{imagem}verde" %>"> </div>
+      </div>
+
+      <div id="linha_data">
+        Data: <%= etapa.data_hora_fim.try :strftime, "%d/%m/%Y" %>
+      </div>
+
+      <div id="linha_hora">
+        Hora: <%= etapa.data_hora_fim.try :strftime, "%H:%M" %><br />
+        Total: <%= etapa.total_horas %>
+      </div>
+      
+      <div id="linha_status">
+        <span id="status_verde"> Concluída </span>
+      </div>
+
+    <% elsif etapa.tarefa.esta_atrasada? && nao_possui_etapa_atrasada %>
+      <div id="linha_imagem">
+        <div id="<%= "#{imagem}vermelho" %>"> </div>
+      </div>
+
+      <div id="linha_data">
+        Data: <%= etapa.data_hora_inicio.try :strftime, "%d/%m/%Y" %>
+      </div>
+
+      <div id="linha_hora">
+        Hora: <%= etapa.data_hora_inicio.try :strftime, "%H:%M" %><br />
+        Total: <%= etapa.total_horas %>
+      </div>
+
+      <div id="linha_status">
+        <span id="status_vermelho"> Atrasada </span>
+      </div>
+
+      <% nao_possui_etapa_atrasada = false %>
+    <% elsif etapa.em_andamento? %>
+      <div id="linha_imagem">
+        <div id="<%= "#{imagem}amarelo" %>"> </div>
+      </div>
+
+      <div id="linha_data">
+        Data: <%= etapa.data_hora_inicio.try :strftime, "%d/%m/%Y" %>
+      </div>
+
+      <div id="linha_hora">
+        Hora: <%= etapa.data_hora_inicio.try :strftime, "%H:%M" %><br />
+        Total: <%= etapa.total_horas %>
+      </div>
+
+      <div id="linha_status">
+        <span id="status_amarelo"> Andamento </span>
+      </div>
+    <% elsif etapa.em_pausa? %>
+      <div id="linha_imagem">
+        <div id="<%= "#{imagem}azul" %>"> </div>
+      </div>
+
+      <div id="linha_data">
+        Data: <%= etapa.data_hora_inicio.try :strftime, "%d/%m/%Y" %>
+      </div>
+
+      <div id="linha_hora">
+        Hora: <%= etapa.data_hora_inicio.try :strftime, "%H:%M" %><br />
+        Total: <%= etapa.total_horas %>
+      </div>
+
+      <div id="linha_status">
+        <span id="status_azul"> Pausa </span>
+      </div>
+    <% else %>
+      <div id="linha_imagem">
+        <div id="<%= "#{imagem}cinza" %>"> </div>
+      </div>
+
+      <div id="linha_data">
+      </div>
+
+      <div id="linha_hora">
+      </div>
+
+      <div id="linha_status">
+        <span id="status_cinza"> Aberta </span>
+      </div>
+    <% end %>
+
+    </div>
+
+    <% if imprimir_pixels %>
+      <div id="coluna_px" style="width: <%= "#{pixels}px" %>;">
+
+        <div id="linha_titulo"> </div>
+        <div id="linha_tecnico"> </div>
+        
+        <% if etapa.concluida? %>
+          <div id="pxVerde"> </div>
+        <% else %>
+          <div id="pxCinza"> </div>
+        <% end %>
+
+      </div>
+    <% end %>
+
+  <% end %>
+
+  </div>
+</div>
+<% end %>

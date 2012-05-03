@@ -1,0 +1,60 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">05 - Tarefas atrasadas</h2>
+    <div class="inner">
+
+      <b>Técnico:</b> <%= @tecnico_nome %><br />
+      <b>Solicitante:</b> <%= @cliente_nome %><br />
+      <b>Serviço:</b> <%= @servico_nome %>
+      <br />
+      <br />
+      
+      <table class="table">
+        <tr>
+          <th class="first">Tarefa</th>
+          <th></th>
+          <th>Solicitante</th>
+          <th></th>
+          <th>Dt. Entrega</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Etapa</th>
+          <th></th>
+          <th>Técnico</th>
+          <th></th>
+          <th>Situação</th>
+        </tr>
+        <% tarefa = 0 %>
+        <% @etapas.each do |etapa| %>
+          <% if tarefa != etapa.tarefa_id %>
+            <tr class="<%= cycle("even") %>">
+              <td align="center"><%= etapa.tarefa_id %></td>
+              <td></td>
+              <td><%= etapa.tarefa.cliente.nome.titleize %></td>
+              <td></td>
+              <td><%= l etapa.tarefa.entrega %></td>
+              <td></td>
+            </tr>
+            <% tarefa = etapa.tarefa_id %>
+          <% end %>
+          <tr class="<%= cycle("odd") %>">
+            <td></td>
+            <td><%= "#{etapa.codigo.to_s}-#{etapa.nome.titleize}" %></td>
+            <td></td>
+            <td><%= etapa.tecnico.nome_completo.titleize %></td>
+            <td></td>
+            <td><%= etapa.status_nome %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br />
+
+      <div class="wat-cf">
+        <%= link_to image_tag("voltar.png") + " Voltar", index_05_path, class: "text_button_padding button" %>
+      </div>
+
+    </div>
+  </div>
+</div>

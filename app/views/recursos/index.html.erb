@@ -1,0 +1,45 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Lista", recursos_path  %></li>
+      <li><%= link_to "Novo", new_recurso_path %></li>
+    </ul>
+  </div>
+  
+  <div class="content">
+    <h2 class="title">Recursos</h2>
+
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">Código</th>
+          <th>Nome</th>
+          <th>Observação</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @recursos.each do |recurso| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td align="center"><%= recurso.id %></td>
+          <td><%= link_to recurso.nome, recurso_path(recurso) %></td>
+          <td><%= truncate recurso.observacao, length: 75 %></td>
+          <td class="last">
+            <%= link_to image_tag("consultar.png"), recurso %> 
+            <%= link_to image_tag("editar.png"), edit_recurso_path(recurso) %>
+            <%= link_to image_tag("excluir.png"), recurso, confirm: 'Você realmente deseja excluir este recurso?', method: :delete %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @recursos  %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'pesquisa' %>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

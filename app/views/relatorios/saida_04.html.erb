@@ -1,0 +1,95 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">04 - Etapas pendentes por técnico</h2>
+    <div class="inner">
+
+      <b>Período:</b> <%= l @data_inicio %> até <%= l @data_fim %><br />
+      <b>Técnico:</b> <%= @tecnico_nome %><br />
+      <b>Solicitante:</b> <%= @cliente_nome %><br />
+      <b>Serviço:</b> <%= @servico_nome %>
+      <br />
+      <br />
+
+      <table class="table">
+        <tr>
+          <th>Técnico</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Tarefa</th>
+          <th>Etapas</th>
+          <th>Núm. Etapas</th>
+        </tr>
+
+        <% tecnico = 0 %>
+        <% tarefa = 0 %>
+        <% etapas = "" %>
+        <% total_etapas = 0 %>
+        <% total = 0 %>
+
+        <% @etapas.each do |etapa| %>
+          <% if tecnico != etapa.tecnico_id %>
+            <% if etapas != "" %>
+              <tr class="<%= cycle("odd") %>">
+                <td></td>
+                <td><%= tarefa %></td>
+                <td><%= etapas %></td>
+                <td><%= total_etapas %></td>
+              </tr>
+              <% etapas = "" %>
+              <% total_etapas = 0 %>
+            <% end %>
+            <tr class="<%= cycle("even") %>">
+              <td><%= etapa.tecnico.nome_completo.titleize %></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <% tarefa = 0 %>
+          <% end %>
+
+          <% if tarefa != 0 %>
+            <% if tarefa != etapa.tarefa_id %>
+              <tr class="<%= cycle("odd") %>">
+                <td></td>
+                <td><%= tarefa %></td>
+                <td><%= etapas %></td>
+                <td><%= total_etapas %></td>
+              </tr>
+              <% etapas = "" %>
+              <% total_etapas = 0 %>
+            <% end %>
+          <% end %>
+
+          <% tecnico = etapa.tecnico_id %>
+          <% tarefa = etapa.tarefa_id %>
+          <% etapas += etapas == "" ? etapa.codigo.to_s : ", #{etapa.codigo.to_s}" %>
+          <% total_etapas += 1 %>
+          <% total += 1 %>
+        <% end %>
+        <tr class="<%= cycle("odd") %>">
+          <td></td>
+          <td><%= tarefa %></td>
+          <td><%= etapas %></td>
+          <td><%= total_etapas %></td>
+        </tr>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td><b>Total</b></td>
+          <td></td>
+          <td></td>
+          <td><b><%= total %></b></td>
+        </tr>
+      </table>
+      <br />
+
+      <div class="wat-cf">
+        <%= link_to image_tag("voltar.png") + " Voltar", index_04_path, class: "text_button_padding button" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+

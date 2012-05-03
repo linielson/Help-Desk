@@ -1,0 +1,19 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Lista", tarefa_tarefa_anexos_path  %></li>
+      <li><%= link_to "Novo", new_tarefa_tarefa_anexo_path %></li>
+      <li class="active"><%= link_to "Editar", edit_tarefa_tarefa_anexo_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Anexo</h2>
+    <div class="inner">
+      <%= form_for @tarefa_anexo, url: tarefa_tarefa_anexo_path(@tarefa, @tarefa_anexo), html: {class: :form} do |f| %>
+        <%= render partial: "form", locals: {f: f} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

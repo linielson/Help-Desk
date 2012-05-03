@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Help Desk</title>
+  <%= stylesheet_link_tag 'web_app_theme' %>
+  <%= stylesheet_link_tag "style" %>
+
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Help Desk</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <li><%= link_to image_tag("inicio.png"), index_path %></li>
+          <% if current_usuario.present? %>
+            <li><%= link_to image_tag("sair.png"), destroy_usuario_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to image_tag("entrar.png"), usuario_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf"> 
+          <li class="<%= controller.controller_path == 'pessoas' ? 'active' : '' %>">
+            <%= link_to "Clientes", pessoas_path %>
+          </li>
+
+          <li class="<%= controller.controller_path == 'recursos' ? 'active' : '' %>">
+            <%= link_to "Recursos", recursos_path %>
+          </li>
+
+          <li class="<%= controller.controller_path == 'servicos' ? 'active' : '' %>">
+            <%= link_to "Serviços", servicos_path %>
+          </li>
+
+          <li class="<%= controller.controller_path == 'projetos' ? 'active' : '' %>">
+            <% if current_usuario.present? && current_usuario.pode_acessar_relatorios_e_projetos? %>
+              <%= link_to "Projetos", projetos_path %>
+            <% else %>
+              <%= link_to "Projetos", "" %>
+            <% end %>
+          </li>
+
+          <li class="<%= controller.controller_path == 'tarefas' ? 'active' : '' %>">
+            <%= link_to "Tarefas", tarefas_path %>
+          </li>
+
+          <li class="<%= controller.controller_path == 'relatorios' ? 'active' : '' %>">
+            <% if current_usuario.present? && current_usuario.pode_acessar_relatorios_e_projetos? %>
+              <%= link_to "Relatórios", relatorios_path %>
+            <% else %>
+              <%= link_to "Relatórios", "" %>
+            <% end %>
+          </li>
+
+          <li class="<%= controller.controller_path == 'usuarios' ? 'active' : '' %>">
+            <% if current_usuario.present? && current_usuario.pode_acessar_usuarios? %>
+              <%= link_to "Usuários", usuarios_path %>
+            <% else %>
+              <%= link_to "Usuários", "" %>
+            <% end %>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| %>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end %>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> ASSEINFO Help Desk.</p>
+          </div>
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

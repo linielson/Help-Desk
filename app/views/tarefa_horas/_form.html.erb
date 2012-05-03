@@ -1,0 +1,31 @@
+  <div class="group">
+    <%= f.label :data, "Data", class: :label %>
+    <%= f.date_select :data, class: :date_select %>
+  </div>
+
+  <div class="group">
+    <%= f.label :inicio, "Inicio", class: :label %>
+    <%= f.time_select :inicio, class: :time_select %>
+  </div>
+
+  <div class="group">
+    <%= f.label :fim, "Fim", class: :label %>
+    <%= f.time_select :fim, class: :time_select %>
+  </div>
+
+  <div class="group">
+    <%= f.label :tecnico, "Técnico", class: :label %>
+    <%= f.collection_select :tecnico_id, @tecnicos, :id, :codigo_nome, prompt: true %>
+  </div>
+
+  <div class="group">
+    <%= f.label :etapa, "Etapa", class: :label %>
+    <%= f.collection_select :tarefa_etapa_id, @etapas, :id, :codigo_nome, prompt: true %>
+  </div>
+
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("ok.png") %> Salvar
+  </button>
+  <%= link_to "Cancelar", tarefa_tarefa_horas_path, class: "text_button_padding link_button" %>
+</div>

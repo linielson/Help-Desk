@@ -1,0 +1,42 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">03 - Número de tarefas por cliente</h2>
+    <div class="inner">
+
+    <%= form_tag executar_03_path, class: :form do %>
+
+      <div class="group">
+        <%= label_tag "", "Emissão", class: :label %>
+        <%= date_select("inicio", "data", options = {
+          order: [:day, :month, :year],
+          start_year: 2012,
+          end_year: Time.now.year}) %>
+      </div>
+
+       <div class="group">
+        <%= label_tag "", "Responsável", class: :label %>
+        <%= select_tag "tecnico", options_from_collection_for_select(@responsaveis, :id, :nome_completo), prompt: 'Todos' %>
+      </div>
+
+      <div class="group">
+        <%= label_tag "", "Cliente", class: :label %>
+        <%= select_tag "cliente", options_from_collection_for_select(@clientes, :id, :nome), prompt: 'Todos' %>
+      </div>
+
+      <div class="group">
+        <%= label_tag "", "Serviço", class: :label %>
+        <%= select_tag "servico", options_from_collection_for_select(@servicos, :id, :nome), prompt: 'Todos' %>
+      </div>
+
+      <div class="wat-cf">
+        <%= link_to image_tag("voltar.png") + " Voltar", relatorios_path, class: "text_button_padding button" %>
+        <button class="button" type="submit">
+          <%= image_tag("rel.png") %> Gerar
+        </button>
+      </div>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>

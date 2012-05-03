@@ -1,0 +1,41 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">06 - Etapas</h2>
+    <div class="inner">
+
+      <b>Período:</b> <%= l @data_inicio %> até <%= l @data_fim %><br />
+      <b>Técnico:</b> <%= @tecnico_nome %><br />
+      <b>Solicitante:</b> <%= @cliente_nome %><br />
+      <b>Serviço:</b> <%= @servico_nome %>
+      <br />
+      <br />
+
+      <table class="table">
+        <tr>
+          <th class="first">Tarefa</th>
+          <th>Etapa</th>
+          <th>Técnico</th>
+          <th>Inicio</th>
+          <th>Fim</th>
+          <th>Situação</th>
+        </tr>
+        <% @etapas.each do |etapa| %>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td><%= etapa.tarefa_id %></td>
+            <td><%= "#{etapa.codigo.to_s}-#{etapa.nome.titleize}" %></td>
+            <td><%= etapa.tecnico.nome_completo.titleize %></td>
+            <td><%= etapa.data_hora_inicio.try :strftime, "%d/%m/%Y %H:%M" %></td>
+            <td><%= etapa.data_hora_fim.try :strftime, "%d/%m/%Y %H:%M" %></td>
+            <td><%= etapa.status_nome %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br />
+
+      <div class="wat-cf">
+        <%= link_to image_tag("voltar.png") + " Voltar", index_06_path, class: "text_button_padding button" %>
+      </div>
+
+    </div>
+  </div>
+</div>

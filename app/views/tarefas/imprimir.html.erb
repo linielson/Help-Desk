@@ -1,0 +1,85 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">Tarefas Impressão</h2>
+    <div class="inner">
+
+    <%= form_tag preparar_impressao_html_path, class: :form do %>
+
+      <div>
+        <div class="group" style="float:left; width: 82px;">
+          <%= label_tag "", "Código", class: :label %>
+          <%= number_field_tag 'scodigo', nil, in: 1...5000, step: false %>
+        </div>
+
+        <div class="group" style="float:left; width: 140px;">
+          <%= label_tag "", "Técnico", class: :label%>
+          <%= select_tag "stecnico", options_from_collection_for_select(@tecnicos, :id, :nome_completo), prompt: 'Todos' %>
+        </div>
+
+        <div class="group" style="float:left; width: 93px;">
+          <%= label_tag "", "Cliente", class: :label %>
+          <%= select_tag "scliente", options_from_collection_for_select(@clientes, :id, :nome), prompt: 'Todos' %>
+        </div>
+
+        <div class="group">
+          <%= label_tag "", "Status", class: :label %>
+          <%= select_tag "sstatus", options_for_select([["Todos", ""], ["Aberta", "A"], ["Em andamento", "E"], ["Concluída", "C"]])%>
+        </div>
+      </div>
+
+      <div>
+        <div class="group" style="float:left; width: 239px;">
+          <%= label_tag "", "Emissão Inicio", class: :label %>
+          <%= date_select("emissao_inicio", "data", options = {
+            order: [:day, :month, :year],
+            start_year: 2012,
+            end_year: Time.now.year,
+            prompt: {day: 'Dia', month: 'Mês', year: 'Ano'},
+            class: 'date_select' }) %>
+        </div>
+
+        <div class="group">
+          <%= label_tag "", "Fim", class: :label %>
+          <%= date_select("emissao_fim", "data", options = {
+            order: [:day, :month, :year],
+            start_year: 2012,
+            end_year: Time.now.year,
+            prompt: {day: 'Dia', month: 'Mês', year: 'Ano'},
+            class: 'date_select' }) %>
+        </div>
+      </div>
+
+      <div>
+        <div class="group" style="float:left; width: 239px;">
+          <%= label_tag "", "Entrega Inicio", class: :label %>
+          <%= date_select("entrega_inicio", "data", options = {
+            order: [:day, :month, :year],
+            start_year: 2012,
+            end_year: Time.now.year,
+            prompt: {day: 'Dia', month: 'Mês', year: 'Ano'},
+            class: 'date_select'}) %>
+         </div>
+
+        <div class="group">
+          <%= label_tag "", "Fim", class: :label %>
+          <%= date_select("entrega_fim", "data", options = {
+            order: [:day, :month, :year],
+            start_year: 2012,
+            end_year: Time.now.year,
+            prompt: {day: 'Dia', month: 'Mês', year: 'Ano'},
+            class: 'date_select'}) %>
+        </div>
+      </div>
+
+      <div class="wat-cf">
+        <%= link_to image_tag("voltar.png") + " Voltar", tarefas_path, class: "text_button_padding button" %>
+        <button class="button" type="submit">
+          <%= image_tag("imprimir.png") %> Imprimir
+        </button>
+      </div>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>

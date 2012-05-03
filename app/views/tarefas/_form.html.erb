@@ -1,0 +1,53 @@
+  <div class="group">
+    <%= f.label "Técnico", class: :label %>
+    <%= text_field_tag 'tecnico', current_usuario.nome_completo, class: :text_field, disabled: true, style: 'width: 150px;' %>
+  </div>
+
+  <% if @tarefa.aberta? %>
+    <div class="group">
+      <%= f.label :projeto_id, "Projeto", class: :label %>
+      <%= f.collection_select :projeto_id, @projetos, :id, :codigo_nome, prompt: true %>
+    </div>
+
+    <div class="group">
+      <%= f.label :cliente_id, "Cliente", class: :label %>
+      <%= f.collection_select :cliente_id, @clientes, :id, :codigo_nome, prompt: true %>
+    </div>
+  <% else %>
+    <div class="group">
+      <%= f.label :projeto_id, "Projeto", class: :label %>
+      <%= f.collection_select :projeto_id, @projetos, :id, :codigo_nome, prompt: true, :disabled => 'restricted' %>
+    </div>
+
+    <div class="group">
+      <%= f.label :cliente_id, "Cliente", class: :label %>
+      <%= f.collection_select :cliente_id, @clientes, :id, :codigo_nome, prompt: true, disabled: true, :disabled => 'restricted' %>
+    </div>
+  <% end %>
+
+  <div class="group">
+    <%= f.label :emissao, "Data de Emissão", class: :label %>
+    <%= f.date_select :emissao, class: :date_select %>
+  </div>
+
+  <div class="group">
+    <%= f.label :solicitacao, "Solicitação", class: :label %>
+    <%= f.text_area :solicitacao, rows: 10, class: :text_area %>
+  </div>
+
+  <div class="group">
+    <%= f.label :entrega, "Data de Entrega", class: :label %>
+    <%= f.date_select :entrega, class: :date_select %>
+  </div>
+
+  <div class="group">
+    <%= f.label :servico, "Serviço", class: :label %>
+    <%= f.collection_select :servico_id, @servicos, :id, :codigo_nome, prompt: true%>
+  </div>
+  
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("ok.png") %> Salvar
+  </button>
+  <%= link_to "Cancelar", tarefas_path, class: "text_button_padding link_button" %>
+</div>

@@ -1,0 +1,311 @@
+/* Imagem Home */
+#direita{
+  padding:0 40px 10px 20px;
+  float:right;
+}
+
+.label_radio {
+  font-family: "MuseoSans500", helvetica, arial, sans-serif;
+  font-weight: normal;
+  color: #666666;
+  font-size: 1.2em;
+  padding: 1px 0;
+  margin: 0;
+}
+
+/* ****************************************************************************/
+/* IMAGENS */
+/* ****************************************************************************/
+
+/* Pontos */
+
+#inicio_verde {
+  background-image: url(inicio_verde.png);
+  width: 104px;
+  height: 48px
+}
+
+#inicio_amarelo {
+  background-image: url(inicio_amarelo.png);
+  width: 104px;
+  height: 48px
+}
+
+#inicio_vermelho {
+  background-image: url(inicio_vermelho.png);
+  width: 104px;
+  height: 48px
+}
+
+#inicio_cinza {
+  background-image: url(inicio_cinza.png);
+  width: 104px;
+  height: 48px
+}
+
+#inicio_azul {
+  background-image: url(inicio_azul.png);
+  width: 104px;
+  height: 48px
+}
+
+#um_verde {
+  background-image: url(um_verde.png);
+  width: 104px;
+  height: 48px
+}
+
+#um_amarelo {
+  background-image: url(um_amarelo.png);
+  width: 104px;
+  height: 48px
+}
+
+#um_vermelho {
+  background-image: url(um_vermelho.png);
+  width: 104px;
+  height: 48px
+}
+
+#um_cinza {
+  background-image: url(um_cinza.png);
+  width: 104px;
+  height: 48px
+}
+
+#um_azul {
+  background-image: url(um_azul.png);
+  width: 104px;
+  height: 48px
+}
+
+#meio_verde {
+  background-image: url(meio_verde.png);
+  width: 104px;
+  height: 48px
+}
+
+#meio_amarelo {
+  background-image: url(meio_amarelo.png);
+  width: 104px;
+  height: 48px
+}
+
+#meio_vermelho {
+  background-image: url(meio_vermelho.png);
+  width: 104px;
+  height: 48px
+}
+
+#meio_cinza {
+  background-image: url(meio_cinza.png);
+  width: 104px;
+  height: 48px
+}
+
+#meio_azul {
+  background-image: url(meio_azul.png);
+  width: 104px;
+  height: 48px
+}
+
+#fim_verde {
+  background-image: url(fim_verde.png);
+  width: 104px;
+  height: 48px
+}
+
+#fim_amarelo {
+  background-image: url(fim_amarelo.png);
+  width: 104px;
+  height: 48px
+}
+
+#fim_vermelho {
+  background-image: url(fim_vermelho.png);
+  width: 104px;
+  height: 48px
+}
+
+#fim_cinza {
+  background-image: url(fim_cinza.png);
+  width: 104px;
+  height: 48px
+}
+
+#fim_azul {
+  background-image: url(fim_azul.png);
+  width: 104px;
+  height: 48px
+}
+
+/* Pixels */
+
+#pxVerde {
+  background-image: url(pxVerde.png);
+  height: 48px
+}
+
+#pxCinza {
+  background-image: url(pxCinza.png);
+  height: 48px
+}
+
+/* ****************************************************************************/
+/* ETAPAS*/
+/* ****************************************************************************/
+
+/* Tabela Imagens */
+#linha_titulo{
+  color: #666666;
+  font-weight: bold;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+  padding:0;
+  clear:both;
+  height:70px;
+  width:104px;
+
+/*  border: 1px solid #000000;
+  background-color: red;*/
+}
+
+#linha_imagem{
+  padding:0;
+  clear:both;
+  height:60px;
+  
+/*  border: 1px solid #000000;*/
+}
+
+#linha_tecnico{
+  text-align: center;
+  padding:0;
+  clear:both;
+  height:16px;
+  color: #262626;
+  font-size: x-small;
+  font-weight: bold;
+}
+
+
+#linha_data{
+  text-align: center;
+  padding:0;
+  clear:both;
+  height:16px;
+  color: #262626;
+  font-size: x-small;
+  font-weight: bold;
+}
+
+#linha_hora{
+  text-align: center;
+  padding:0;
+  clear:both;
+  height:35px;
+  font-size: x-small;
+
+/*  border: 1px solid #000000;
+  background-color: yellowgreen;*/
+}
+
+#linha_status{
+  text-align: center;
+  padding:0;
+  clear:both;
+  height:30px;
+
+/*  border: 1px solid #000000;
+  background-color: #0099FF;*/
+}
+
+#coluna{
+  background-color: #eeeeef;
+  height:230px;
+  width:104px;
+  float:left;
+  margin:0px;
+  padding:0;
+  
+/*  border: 1px solid #000000;*/
+}
+
+#coluna_px{
+  background-color: #eeeeef;
+  height:230px;
+  float:left;
+  margin:0px;
+  padding:0;
+
+/*  border: 1px solid #000000;*/
+}
+
+/* Status */
+
+#status_verde{
+  color: #006600;
+  font-weight:bold;
+  font-size:12px;
+  width: 88px;
+  height: 18px;
+}
+
+#status_amarelo{
+  color: #CCA300;
+  font-weight:bold;
+  font-size:12px;
+  width: 88px;
+  height: 18px;
+}
+
+#status_vermelho{
+  color: #FF0000;
+  font-weight:bold;
+  font-size:12px;
+  width: 88px;
+  height: 18px;
+}
+
+#status_cinza{
+  color: #666666;
+  font-weight:bold;
+  font-size:12px;
+  width: 88px;
+  height: 18px;
+}
+
+#status_azul{
+  color: #335CD6;
+  font-weight:bold;
+  font-size:12px;
+  width: 88px;
+  height: 18px;
+}
+
+
+/* ****************************************************************************/
+/* TABELA PROJETO */
+/* ****************************************************************************/
+
+.table_tarefa {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+}
+
+.table_tarefa th {
+  padding: 10px;
+  font-weight: bold;
+  text-align: left;
+  font-weight: normal;
+}
+
+.table_tarefa td {
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+  background-color: #C7DCFF
+}

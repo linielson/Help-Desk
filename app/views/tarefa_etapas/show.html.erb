@@ -1,0 +1,60 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Lista", tarefa_tarefa_etapas_path %></li>
+      <li><%= link_to "Novo", new_tarefa_tarefa_etapa_path %></li>
+      <li class="active"><%= link_to "Consultar", tarefa_tarefa_etapa_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="inner">
+      <p>
+        <b>Código:</b>
+        <%= @tarefa_etapa.codigo %>
+      </p>
+
+      <p>
+        <b>Nome:</b>
+        <%= @tarefa_etapa.nome.titleize %>
+      </p>
+
+      <p>
+        <b>Técnico:</b>
+        <%= @tarefa_etapa.tecnico.nome_completo %>
+      </p>
+
+      <p>
+        <b>Descrição:</b>
+        <%= simple_format @tarefa_etapa.descricao %>
+      </p>
+
+      <p>
+        <b>Status:</b>
+        <%= @tarefa_etapa.status_nome %>
+      </p>
+
+      <% if @tarefa_etapa.recursos.present? %>
+        <p>
+          <b>Recursos</b>
+          <% @tarefa_etapa.recursos.each do |r| %>
+            <li><%= r.nome.titleize %></li>
+          <% end %>
+        </p>
+      <% end %>
+
+      <div class="wat-cf">
+        <% if @tarefa_etapa.concluida? %>
+          <%= link_to image_tag("editar_d.png") + " Editar", "", class: "button" %>
+          <%= link_to image_tag("excluir_d.png") + " Excluir", "", class: "button" %>
+        <% else %>
+          <%= link_to image_tag("editar.png") + " Editar", edit_tarefa_tarefa_etapa_path(@tarefa, @tarefa_etapa), class: "button", enable: true %>
+          <%= link_to image_tag("excluir.png") + " Excluir", tarefa_tarefa_etapa_path(@tarefa, @tarefa_etapa),
+            method: "delete", class: "button", confirm: 'Confirmar a conclusão desta etapa?' %>
+        <% end %>
+      </div>
+        
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

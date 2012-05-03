@@ -1,0 +1,81 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Lista", tarefa_tarefa_etapas_path(@tarefa) %></li>
+      <li><%= link_to "Novo", new_tarefa_tarefa_etapa_path(@tarefa) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Etapas da Tarefa</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">Código</th>
+          <th>Nome</th>
+          <th>Técnico</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+
+        <% pode_iniciar = true %>
+        <% @tarefa_etapas.each do |etapa| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td align="center"><%= etapa.codigo %></td>
+          <td><%= etapa.nome.titleize %></td>
+          <td><%= etapa.tecnico.nome_completo.titleize %></td>
+          <td><%= truncate etapa.descricao %></td>
+          <td><%= etapa.status_nome %></td>
+          
+          <td class="last">
+            <%= link_to image_tag("consultar.png"), tarefa_tarefa_etapa_path(@tarefa, etapa) %>
+
+            <% if etapa.aberta? %>
+              <%= link_to image_tag("editar.png"), edit_tarefa_tarefa_etapa_path(@tarefa, etapa) %>
+              <%= link_to image_tag("excluir.png"), tarefa_tarefa_etapa_path(@tarefa, etapa), confirm: 'Você realmente deseja excluir esta etapa?', method: :delete %>
+            <% else %>
+              <%= image_tag("editar_d.png") %>
+              <%= image_tag("excluir_d.png") %>
+            <% end %>
+
+            <% if etapa.aberta? && @tarefa.em_andamento? && pode_iniciar %>
+              <%= link_to image_tag("iniciar.png"), tarefa_tarefa_etapa_iniciar_path(@tarefa, etapa), confirm: 'Você realmente deseja iniciar esta etapa agora?' %>
+              <%= image_tag("pausar_d.png") %>
+              <%= image_tag("concluir_d.png") %>
+            <% elsif etapa.em_andamento? %>
+              <%= image_tag("iniciar_d.png") %>
+              <%= link_to image_tag("pausar.png"), tarefa_tarefa_etapa_pausar_path(@tarefa, etapa) %>
+              <%= link_to image_tag("concluir.png"), tarefa_tarefa_etapa_concluir_path(@tarefa, etapa), confirm: 'Confirmar a conclusão desta etapa?' %>
+            <% elsif etapa.em_pausa? %>
+              <%= link_to image_tag("iniciar.png"), tarefa_tarefa_etapa_iniciar_path(@tarefa, etapa), confirm: 'Você realmente deseja iniciar esta etapa agora?' %>
+              <%= image_tag("pausar_d.png") %>
+              <%= link_to image_tag("concluir.png"), tarefa_tarefa_etapa_concluir_path(@tarefa, etapa), confirm: 'Confirmar a conclusão desta etapa?' %>
+            <% else %>
+              <%= image_tag("iniciar_d.png") %>
+              <%= image_tag("pausar_d.png") %>
+              <% if etapa.aberta? %>
+                <%= image_tag("concluir_d.png") %>
+              <% else %>
+                <%= image_tag("concluido.png") %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        
+        <% pode_iniciar = etapa.status == "C" %>
+        <% end %>
+        
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions"> </div>
+        <%= will_paginate @tarefa_etapas %>
+      </div>
+
+      <div class="group navform wat-cf">
+        <%= link_to image_tag("voltar.png") + " Voltar", tarefas_path, class: "text_button_padding button" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

@@ -1,0 +1,41 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Lista", pessoas_path %></li>
+      <li><%= link_to "Novo", new_pessoa_path %></li>
+      <li class="active"><%= link_to "Consultar", pessoa_path %></li>
+    </ul>
+  </div>
+  
+  <div class="content">
+    <div class="inner">
+      <p>
+        <b>Nome:</b>
+        <%= @pessoa.nome %>
+      </p>
+
+      <p>
+        <b>E-mail:</b>
+        <%= @pessoa.email %>
+      </p>
+
+      <p>
+        <b>Telefone:</b>
+        <%= @pessoa.telefone %>
+      </p>
+
+      <p>
+        <b>Usuário:</b>
+        <%= @pessoa.usuario.nome_completo.titleize %>
+      </p>
+
+      <div class="wat-cf">
+        <%= link_to image_tag("editar.png") + " Editar", edit_pessoa_path(@pessoa), class: "button" %>
+        <%= link_to image_tag("excluir.png") + " Excluir", pessoa_path(@pessoa), method: "delete",
+          class: "button", confirm: 'Você realmente deseja excluir este cliente?' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

@@ -1,0 +1,35 @@
+<h1>Help Desk</h1>
+<div class="block" id="block-login">
+  <h2>Alterar sua senha</h2>
+  <div class="content login">
+
+    <br />
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: "form login"}) do |f| %>
+
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="group">
+        <%= f.label :password, "Nova senha", class: :label %>
+        <%= f.password_field :password, class: :text_field, style: 'width: 175px;' %>
+      </div>
+
+      <div class="group">
+       <%= f.label :password_confirmation, "Confirmar", class: :label %>
+       <%= f.password_field :password_confirmation, placeholder: "confirmação da senha", class: :text_field, style: 'width: 175px;' %>
+      </div>
+
+      <br />
+
+      <div class="group navform wat-cf">
+        <button class="button" type="submit">
+          <%= image_tag("web-app-theme/icons/tick.png", alt: "Alterar") %> Alterar
+        </button>
+
+        <%= link_to "Cancelar", new_usuario_session_path, class: "text_button_padding link_button" %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Lista", projetos_path %></li>
+      <li><%= link_to "Novo", new_projeto_path %></li>
+      <li class="active"><%= link_to "Consultar", projeto_path %></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    
+    <div class="inner">
+      <p>
+        <b>Nome:</b>
+        <%= @projeto.nome %>
+      </p>
+
+      <p>
+        <b>Descrição:</b>
+        <%= simple_format @projeto.descricao %>
+      </p>
+
+      <p>
+        <b>Data de Inicio:</b>
+        <%= @projeto.inicio.try :strftime, "%d/%m/%Y" %>
+      </p>
+
+      <% if @projeto.fim.present? %>
+        <p>
+          <b>Término:</b>
+          <%= l @projeto.fim %>
+        </p>
+      <% else %>
+        <p>
+          <b>Previsão de Término:</b>
+          <% if @projeto.previsao_fim.present? %>
+            <%= l @projeto.previsao_fim %>
+          <% else %>
+            Não informado!
+          <% end %>
+        </p>
+      <% end %>
+
+      <p>
+        <b>Status:</b>
+        <%= @projeto.status_nome %>
+      </p>
+
+      <p>
+        <b>Cliente:</b>
+        <%= @projeto.cliente.nome.titleize %>
+      </p>
+
+      <p>
+        <b>Gastos Previsto:</b>
+        <%= @projeto.gastos_previsto %>
+      </p>
+
+      <p>
+        <b>Gastos Efetivos:</b>
+        <%= @projeto.gastos_final %>
+      </p>
+
+      <p>
+        <b>Usuário:</b>
+        <%= @projeto.usuario.nome_completo.titleize %>
+      </p>
+      
+      <div class="wat-cf">
+        <%= link_to image_tag("editar.png") + " Editar", edit_projeto_path(@projeto), class: "button" %>
+        <%= link_to image_tag("excluir.png") + " Excluir", projeto_path(@projeto), method: "delete",
+          class: "button", confirm: 'Você realmente deseja excluir este projeto?' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

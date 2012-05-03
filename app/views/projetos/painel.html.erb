@@ -1,0 +1,101 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Lista", projetos_path  %></li>
+      <li class="active"><%= link_to "Painel", "#" %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Projetos</h2>
+    <div class="inner">
+
+      <table class="table">
+        <tr>
+          <th class="first" style="width: 1px"></th>
+          <th>Projeto</th>
+          <th>Cliente</th>
+          <th>Inicio</th>
+          <th>Fim</th>
+          <th>Status</th>
+          <th>Gastos Prev.</th>
+          <th>Gastos Efet.</th>
+          <th>Nº Tarefas</th>
+          <th>Total Horas</th>
+          <th>Horas/Tarefas</th>
+        </tr>
+        <% @projetos.each do |projeto| %>
+          <tr class="<%= cycle("even") %>">
+            <td><%= image_tag("mais.png", id: "imagemMaisMenos_#{projeto.id}",
+                 onclick: "fecha('linha_#{projeto.id}', 'imagemMaisMenos_#{projeto.id}');") %></td>
+            <td><%= "#{projeto.id} - #{projeto.nome.titleize}" %></td>
+            <td><%= projeto.cliente.nome.titleize %></td>
+            <td><%= projeto.inicio.try :strftime, "%d/%m/%Y" %></td>
+            <td><%= projeto.fim.try :strftime, "%d/%m/%Y" %></td>
+            <td><%= projeto.status_nome %></td>
+            <td><%= projeto.gastos_previsto %> </td>
+            <td><%= projeto.gastos_final %></td>
+            <td align="center"><%= projeto.tarefas.size %></td>
+            <td align="center"><%= projeto.total_horas %></td>
+            <% if projeto.tarefas.size > 0 %>
+              <td align="center"><%= Time.at((projeto.total_tempo_trabalhado /
+                projeto.tarefas.size)).gmtime.strftime("%H:%M") %></td>
+            <% else %>
+              <td align="center">0</td>
+            <% end %>
+          </tr>
+
+          <tr id="linha_<%= projeto.id %>" style="display: none">
+            <td colspan="11">
+              <table class="table_tarefa">
+                <tr>
+                  <th class="first" style="width: 1px"></th>
+                  <th>Tarefa</th>
+                  <th>Emissão</th>
+                  <th>Solicitação</th>
+                  <th>Status</th>
+                  <th>Total Horas</th>
+                  <th>% Horas</th>
+                </tr>
+                <% projeto.tarefas.each do |tarefa| %>
+                  <tr class="<%= cycle("odd") %>">
+                    <td><%= image_tag("mais.png", id: "imagemMaisMenos_#{projeto.id}_#{tarefa.id}",
+                         onclick: "fecha('linha_#{projeto.id}_#{tarefa.id}', 'imagemMaisMenos_#{projeto.id}_#{tarefa.id}');") %></td>
+                    <td><%= tarefa.id %></td>
+                    <td><%= l tarefa.emissao %></td>
+                    <td><%= truncate tarefa.solicitacao, length: 40 %></td>
+                    <td><%= tarefa.status_nome %></td>
+                    <td><%= tarefa.total_horas %></td>
+                    <% if projeto.total_tempo_trabalhado > 0 %>
+                      <td><%= "#{'%0.2f' % ((tarefa.total_tempo_trabalhado / projeto.total_tempo_trabalhado) * 100)}%"%></td>
+                    <% else %>
+                      <td>0</td>
+                    <% end %>
+                  </tr>
+
+                  <tr id="linha_<%= projeto.id %>_<%= tarefa.id %>" style="display: none">
+                    <td colspan="7" style="background-color: #eeeeef">
+                      <%= render "tarefa_etapas/workflow",
+                        etapas: tarefa.tarefa_etapas, pixels: 10, tamanho_total: 936 %>
+                    </td>
+                  </tr>
+
+                <% end %>
+              </table>
+            </td>
+          </tr>
+          
+        <% end %>
+      </table>
+
+      <div class="actions-bar wat-cf">
+        <div class="actions"> </div>
+        <%= will_paginate @projetos %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%= render 'pesquisa_painel' %>
+
+<% content_for :sidebar, render(partial: 'sidebar') %>

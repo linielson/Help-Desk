@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  descricao: MyText
+  inicio: 2012-04-26
+  fim: 2012-04-26
+  previsao_fim: 2012-04-26
+  status: MyString
+  cliente_id: 1
+  gastos_previsto: 1.5
+  gastos_final: 1.5
+  usuario: 
+
+two:
+  nome: MyString
+  descricao: MyText
+  inicio: 2012-04-26
+  fim: 2012-04-26
+  previsao_fim: 2012-04-26
+  status: MyString
+  cliente_id: 1
+  gastos_previsto: 1.5
+  gastos_final: 1.5
+  usuario: 
