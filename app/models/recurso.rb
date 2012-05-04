@@ -7,7 +7,7 @@ class Recurso < ActiveRecord::Base
   validates_associated :usuario
 
   scope :pesquisar, lambda { |texto|
-    where("nome LIKE :t OR observacao LIKE :t", t: "%#{texto}%")
+    where("upper(nome) LIKE upper(:t) OR upper(observacao) LIKE upper(:t)", t: "%#{texto}%")
   }
 end
 

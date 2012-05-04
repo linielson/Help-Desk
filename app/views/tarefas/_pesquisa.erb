@@ -16,16 +16,17 @@
           <%= select_tag "sstatus", options_for_select([["Todos", ""], ["Aberta", "A"], ["Em andamento", "E"], ["Concluída", "C"]])%>
         </div>
 
-        <div class="group" style="float:left; width: 150px;">
+        <div class="group">
           <%= label_tag "", "Técnico", class: :label%>
           <%= select_tag "stecnico", options_from_collection_for_select(@tecnicos, :id, :nome_completo), prompt: 'Todos' %>
         </div>
+      </div>
 
+      <div>
         <div class="group">
           <%= label_tag "", "Cliente", class: :label %>
           <%= select_tag "scliente", options_from_collection_for_select(@clientes, :id, :nome), prompt: 'Todos' %>
         </div>
-
       </div>
 
       <div>

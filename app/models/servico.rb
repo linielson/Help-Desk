@@ -15,7 +15,7 @@ class Servico < ActiveRecord::Base
   }
 
   scope :pesquisar_por_nome, lambda { |nome|
-    where("nome LIKE :n", n: "%#{nome}%")
+    where("upper(nome) LIKE upper(:n)", n: "%#{nome}%")
   }
 
 end

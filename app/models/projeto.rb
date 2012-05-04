@@ -47,7 +47,7 @@ class Projeto < ActiveRecord::Base
   end
 
   scope :pesquisar_por_nome, lambda { |nome|
-    where("nome LIKE :n", n: "%#{nome}%")
+    where("upper(nome) LIKE upper(:n)", n: "%#{nome}%")
   }
 
   scope :pesquisar_por_cliente, lambda { |id|
