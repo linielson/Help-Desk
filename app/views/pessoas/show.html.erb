@@ -30,8 +30,8 @@
       </p>
 
       <div class="wat-cf">
-        <%= link_to image_tag("editar.png") + " Editar", edit_pessoa_path(@pessoa), class: "button" %>
-        <%= link_to image_tag("excluir.png") + " Excluir", pessoa_path(@pessoa), method: "delete",
+        <%= link_to image_tag("editar.png", alt: "Editar") + " Editar", edit_pessoa_path(@pessoa), class: "button" %>
+        <%= link_to image_tag("excluir.png", alt: "Excluir") + " Excluir", pessoa_path(@pessoa), method: "delete",
           class: "button", confirm: 'Você realmente deseja excluir este cliente?' %>
       </div>
     </div>

@@ -44,11 +44,11 @@
 
       <div class="wat-cf">
         <% if @tarefa_etapa.concluida? %>
-          <%= link_to image_tag("editar_d.png") + " Editar", "", class: "button" %>
-          <%= link_to image_tag("excluir_d.png") + " Excluir", "", class: "button" %>
+          <%= link_to image_tag("editar_d.png", alt: "Editar") + " Editar", "", class: "button" %>
+          <%= link_to image_tag("excluir_d.png", alt: "Excluir") + " Excluir", "", class: "button" %>
         <% else %>
-          <%= link_to image_tag("editar.png") + " Editar", edit_tarefa_tarefa_etapa_path(@tarefa, @tarefa_etapa), class: "button", enable: true %>
-          <%= link_to image_tag("excluir.png") + " Excluir", tarefa_tarefa_etapa_path(@tarefa, @tarefa_etapa),
+          <%= link_to image_tag("editar.png", alt: "Editar") + " Editar", edit_tarefa_tarefa_etapa_path(@tarefa, @tarefa_etapa), class: "button", enable: true %>
+          <%= link_to image_tag("excluir.png", alt: "Excluir") + " Excluir", tarefa_tarefa_etapa_path(@tarefa, @tarefa_etapa),
             method: "delete", class: "button", confirm: 'Confirmar a conclusão desta etapa?' %>
         <% end %>
       </div>

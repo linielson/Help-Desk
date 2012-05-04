@@ -14,11 +14,11 @@
       <h1><a href="/">Help Desk</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-          <li><%= link_to image_tag("inicio.png"), index_path %></li>
+          <li><%= link_to image_tag("inicio.png", alt: "Home", title: "Home"), index_path %></li>
           <% if current_usuario.present? %>
-            <li><%= link_to image_tag("sair.png"), destroy_usuario_session_path, method: :delete %></li>
+            <li><%= link_to image_tag("sair.png", alt: "Sair", title: "Sair"), destroy_usuario_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to image_tag("entrar.png"), usuario_session_path %></li>
+            <li><%= link_to image_tag("entrar.png", alt: "Entrar", title: "Entrar"), usuario_session_path %></li>
           <% end %>
         </ul>
       </div>

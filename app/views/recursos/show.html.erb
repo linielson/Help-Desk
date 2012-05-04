@@ -30,8 +30,8 @@
       </p>
       
       <div class="wat-cf">
-        <%= link_to image_tag("editar.png") + " Editar", edit_recurso_path(@recurso), class: "button" %>
-        <%= link_to image_tag("excluir.png") + " Excluir", recurso_path(@recurso),
+        <%= link_to image_tag("editar.png", alt: "Editar") + " Editar", edit_recurso_path(@recurso), class: "button" %>
+        <%= link_to image_tag("excluir.png", alt: "Excluir") + " Excluir", recurso_path(@recurso),
           method: "delete", class: "button", confirm: 'Você realmente deseja excluir este recurso?' %>
       </div>
     </div>

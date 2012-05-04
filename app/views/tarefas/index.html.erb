@@ -42,24 +42,24 @@
 
           <td class="last">
             <% if tarefa.aberta? %>
-              <%= link_to image_tag("iniciar.png"), tarefa_iniciar_path(tarefa), confirm: 'Esta ação dará inicio a execução desta tarefa. Já verificou todas as etapas? Você realmente deseja prosseguir?' %>
+              <%= link_to image_tag("iniciar.png", alt: "Iniciar", title: "Iniciar"), tarefa_iniciar_path(tarefa), confirm: 'Esta ação dará inicio a execução desta tarefa. Já verificou todas as etapas? Você realmente deseja prosseguir?' %>
             <% elsif tarefa.em_andamento? %>
-              <%= image_tag("iniciar_d.png") %>
+              <%= image_tag("iniciar_d.png", alt: "Iniciar", title: "Iniciar") %>
             <% else %>
-              <%= image_tag("concluido.png") %>
+              <%= image_tag("concluido.png", alt: "Concluído", title: "Concluído") %>
             <% end %>
 
-            <%= link_to image_tag("etapas.png"), tarefa_tarefa_etapas_path(tarefa) %>
-            <%= link_to image_tag("horas.png"), tarefa_tarefa_horas_path(tarefa) %>
-            <%= link_to image_tag("anexos.png"), tarefa_tarefa_anexos_path(tarefa) %>
-            <%= link_to image_tag("consultar.png"), tarefa %>
+            <%= link_to image_tag("etapas.png", alt: "Etapas", title: "Etapas"), tarefa_tarefa_etapas_path(tarefa) %>
+            <%= link_to image_tag("horas.png", alt: "Horas", title: "Horas"), tarefa_tarefa_horas_path(tarefa) %>
+            <%= link_to image_tag("anexos.png", alt: "Anexos", title: "Anexos"), tarefa_tarefa_anexos_path(tarefa) %>
+            <%= link_to image_tag("consultar.png", alt: "Consultar", title: "Consultar"), tarefa %>
 
             <% if tarefa.aberta? or tarefa.em_andamento? %>
-              <%= link_to image_tag("editar.png"), edit_tarefa_path(tarefa) %>
-              <%= link_to image_tag("excluir.png"), tarefa, confirm: 'Você realmente deseja excluir esta tarefa?', method: :delete %>
+              <%= link_to image_tag("editar.png", alt: "Editar", title: "Editar"), edit_tarefa_path(tarefa) %>
+              <%= link_to image_tag("excluir.png", alt: "Excluir", title: "Excluir"), tarefa, confirm: 'Você realmente deseja excluir esta tarefa?', method: :delete %>
             <% else %>
-              <%= image_tag("editar_d.png") %>
-              <%= image_tag("excluir_d.png") %>
+              <%= image_tag("editar_d.png", alt: "Editar", title: "Editar") %>
+              <%= image_tag("excluir_d.png", alt: "Excluir", title: "Excluir") %>
             <% end %>
               
           </td>

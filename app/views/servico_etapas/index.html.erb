@@ -21,9 +21,12 @@
             <td><%= truncate etapa.descricao, length: 75 %></td>
 
             <td class="last">
-              <%= link_to image_tag("consultar.png"), servico_servico_etapa_path(@servico, etapa) %> 
-              <%= link_to image_tag("editar.png"), edit_servico_servico_etapa_path(@servico, etapa) %> 
-              <%= link_to image_tag("excluir.png"), servico_servico_etapa_path(@servico, etapa),
+              <%= link_to image_tag("consultar.png", alt: "Consultar", title: "Consultar"),
+                servico_servico_etapa_path(@servico, etapa) %>
+              <%= link_to image_tag("editar.png", alt: "Editar", title: "Editar"),
+                edit_servico_servico_etapa_path(@servico, etapa) %>
+              <%= link_to image_tag("excluir.png", alt: "Excluir", title: "Excluir"),
+                servico_servico_etapa_path(@servico, etapa),
                 confirm: 'Você realmente deseja excluir esta etapa?', method: :delete %>
             </td>
           </tr>
@@ -38,7 +41,8 @@
       </div>
 
       <div class="group navform wat-cf">
-        <%= link_to image_tag("voltar.png") + " Voltar", servicos_path, class: "text_button_padding button" %>
+        <%= link_to image_tag("voltar.png", alt: "Voltar") + " Voltar",
+          servicos_path, class: "text_button_padding button" %>
       </div>
 
     </div>

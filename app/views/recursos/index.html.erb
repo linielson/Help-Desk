@@ -23,9 +23,11 @@
           <td><%= link_to recurso.nome, recurso_path(recurso) %></td>
           <td><%= truncate recurso.observacao, length: 75 %></td>
           <td class="last">
-            <%= link_to image_tag("consultar.png"), recurso %> 
-            <%= link_to image_tag("editar.png"), edit_recurso_path(recurso) %>
-            <%= link_to image_tag("excluir.png"), recurso, confirm: 'Você realmente deseja excluir este recurso?', method: :delete %>
+            <%= link_to image_tag("consultar.png", alt: "Consultar", title: "Consultar"), recurso %>
+            <%= link_to image_tag("editar.png", alt: "Editar", title: "Editar"),
+              edit_recurso_path(recurso) %>
+            <%= link_to image_tag("excluir.png", alt: "Excluir", title: "Excluir"), recurso,
+              confirm: 'Você realmente deseja excluir este recurso?', method: :delete %>
           </td>
         </tr>
         <% end %>

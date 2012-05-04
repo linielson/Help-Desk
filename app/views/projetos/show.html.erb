@@ -67,8 +67,8 @@
       </p>
       
       <div class="wat-cf">
-        <%= link_to image_tag("editar.png") + " Editar", edit_projeto_path(@projeto), class: "button" %>
-        <%= link_to image_tag("excluir.png") + " Excluir", projeto_path(@projeto), method: "delete",
+        <%= link_to image_tag("editar.png", alt: "Editar") + " Editar", edit_projeto_path(@projeto), class: "button" %>
+        <%= link_to image_tag("excluir.png", alt: "Excluir") + " Excluir", projeto_path(@projeto), method: "delete",
           class: "button", confirm: 'Você realmente deseja excluir este projeto?' %>
       </div>
     </div>

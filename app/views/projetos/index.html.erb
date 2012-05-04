@@ -31,22 +31,26 @@
             <td><%= projeto.status_nome %></td>
 
            <td class="last">
-              <%= link_to image_tag("consultar.png"), projeto_path(projeto) %>
+              <%= link_to image_tag("consultar.png", alt: "Consultar", title: "Consultar"), projeto_path(projeto) %>
               <% if projeto.concluido? %>
-                <%= image_tag("editar_d.png") %>
-                <%= image_tag("excluir_d.png") %>
-                <%= image_tag("iniciar_d.png") %>
-                <%= image_tag("concluido.png") %>
+                <%= image_tag("editar_d.png", alt: "Editar", title: "Editar") %>
+                <%= image_tag("excluir_d.png", alt: "Excluir", title: "Excluir") %>
+                <%= image_tag("iniciar_d.png", alt: "Iniciar", title: "Iniciar") %>
+                <%= image_tag("concluido.png", alt: "Concluído", title: "Concluído") %>
               <% else %>
-                <%= link_to image_tag("editar.png"), edit_projeto_path(projeto) %>
-                <%= link_to image_tag("excluir.png"), projeto_path(projeto), method: :delete,
+                <%= link_to image_tag("editar.png", alt: "Editar", title: "Editar"),
+                  edit_projeto_path(projeto) %>
+                <%= link_to image_tag("excluir.png", alt: "Excluir", title: "Excluir"),
+                  projeto_path(projeto), method: :delete,
                   confirm: 'Você realmente deseja excluir este projeto?' %>
                 <% if projeto.aberto? %>
-                  <%= link_to image_tag("iniciar.png"), projeto_iniciar_path(projeto), confirm: 'Você realmente deseja iniciar este projeto agora?' %>
-                  <%= image_tag("concluir_d.png") %>
+                  <%= link_to image_tag("iniciar.png", alt: "Iniciar", title: "Iniciar"),
+                    projeto_iniciar_path(projeto), confirm: 'Você realmente deseja iniciar este projeto agora?' %>
+                  <%= image_tag("concluir_d.png", alt: "Concluir", title: "Concluir") %>
                 <% else %>
-                  <%= image_tag("iniciar_d.png") %>
-                  <%= link_to image_tag("concluir.png"), projeto_concluir_path(projeto), confirm: 'Confirmar a conclusão deste projeto?' %>
+                  <%= image_tag("iniciar_d.png", alt: "Iniciar", title: "Iniciar") %>
+                  <%= link_to image_tag("concluir.png", alt: "Concluir", title: "Concluir"),
+                    projeto_concluir_path(projeto), confirm: 'Confirmar a conclusão deste projeto?' %>
                 <% end %>
               <% end %>
 
