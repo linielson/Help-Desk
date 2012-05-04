@@ -62,5 +62,6 @@ module Helpdesk
       Devise::RegistrationsController.layout "sign"
       Devise::PasswordsController.layout "sign"
     end
+
   end
 end
