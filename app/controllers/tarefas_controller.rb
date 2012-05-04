@@ -119,7 +119,7 @@ class TarefasController < ApplicationController
       end
     end
 
-    @tarefas = @tarefas.paginate(page: params[:page], per_page: 15).order('id DESC')
+    @tarefas = @tarefas.paginate(page: params[:page], per_page: 15).order('id ASC')
 
     render action: "impressao_html"
   end
@@ -127,14 +127,14 @@ class TarefasController < ApplicationController
 protected
 
   def carregar_recursos
-    @clientes = Pessoa.all
-    @tecnicos = Usuario.all
-    @servicos = Servico.all
-    @projetos = Projeto.find(:all, conditions: "status <> 'C'")
+    @clientes = Pessoa.order('id ASC').all
+    @tecnicos = Usuario.order('id ASC').all
+    @servicos = Servico.order('id ASC').all
+    @projetos = Projeto.order('id ASC').find(:all, conditions: "status <> 'C'")
   end
 
   def copiar_etapas_do_servico tarefa
-    tarefa.servico.servico_etapas.each do |etapa|
+    tarefa.servico.servico_etapas.order('id ASC').each do |etapa|
 
       @tarefa_etapa = tarefa.tarefa_etapas.create(
         codigo: tarefa.tarefa_etapas.maximum('codigo').to_i + 1,

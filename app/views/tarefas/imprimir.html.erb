@@ -11,24 +11,26 @@
           <%= number_field_tag 'scodigo', nil, in: 1...5000, step: false %>
         </div>
 
-        <div class="group" style="float:left; width: 140px;">
-          <%= label_tag "", "Técnico", class: :label%>
-          <%= select_tag "stecnico", options_from_collection_for_select(@tecnicos, :id, :nome_completo), prompt: 'Todos' %>
-        </div>
-
-        <div class="group" style="float:left; width: 93px;">
-          <%= label_tag "", "Cliente", class: :label %>
-          <%= select_tag "scliente", options_from_collection_for_select(@clientes, :id, :nome), prompt: 'Todos' %>
+        <div class="group" style="float:left; width: 130px;">
+          <%= label_tag "", "Status", class: :label %>
+          <%= select_tag "sstatus", options_for_select([["Todos", ""], ["Aberta", "A"], ["Em andamento", "E"], ["Concluída", "C"]])%>
         </div>
 
         <div class="group">
-          <%= label_tag "", "Status", class: :label %>
-          <%= select_tag "sstatus", options_for_select([["Todos", ""], ["Aberta", "A"], ["Em andamento", "E"], ["Concluída", "C"]])%>
+          <%= label_tag "", "Técnico", class: :label%>
+          <%= select_tag "stecnico", options_from_collection_for_select(@tecnicos, :id, :nome_completo), prompt: 'Todos' %>
         </div>
       </div>
 
       <div>
-        <div class="group" style="float:left; width: 239px;">
+        <div class="group">
+          <%= label_tag "", "Cliente", class: :label %>
+          <%= select_tag "scliente", options_from_collection_for_select(@clientes, :id, :nome), prompt: 'Todos' %>
+        </div>
+      </div>
+
+      <div>
+        <div class="group" style="float:left; width: 213px;">
           <%= label_tag "", "Emissão Inicio", class: :label %>
           <%= date_select("emissao_inicio", "data", options = {
             order: [:day, :month, :year],
@@ -50,7 +52,7 @@
       </div>
 
       <div>
-        <div class="group" style="float:left; width: 239px;">
+        <div class="group" style="float:left; width: 213px;">
           <%= label_tag "", "Entrega Inicio", class: :label %>
           <%= date_select("entrega_inicio", "data", options = {
             order: [:day, :month, :year],
