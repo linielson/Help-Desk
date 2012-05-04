@@ -5,7 +5,7 @@ class TarefaEtapasController < ApplicationController
 
   def index
     @tarefa = Tarefa.find(params[:tarefa_id])
-    @tarefa_etapas = @tarefa.tarefa_etapas.paginate page: params[:page], per_page: 10
+    @tarefa_etapas = @tarefa.tarefa_etapas.paginate(page: params[:page], per_page: 10).order('id ASC')
     respond_with @tarefa_etapas
   end
 
