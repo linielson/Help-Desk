@@ -17,7 +17,7 @@ class Pessoa < ActiveRecord::Base
   }
 
   scope :pesquisar_por_nome, lambda { |nome|
-    where("nome LIKE upper(:n)", n: "%#{nome.upcase}%")
+    where("upper(nome) LIKE :n", n: "%#{nome.upcase}%")
   }
 
 end
