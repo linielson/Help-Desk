@@ -9,3 +9,5 @@ ActionMailer::Base.smtp_settings = {
   :openssl_verify_mode  => 'none'
 }
 #'ahelpdesk@live.com',
+
+ActionMailer::Base.delivery_method = :smtp
