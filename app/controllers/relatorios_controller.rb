@@ -198,7 +198,7 @@ class RelatoriosController < ApplicationController
         @data_inicio, @data_fim]
     )
 
-    @etapas = TarefaEtapa.all(
+    @etapas = TarefaEtapa.order('tarefa_id, id').all(
       conditions: ["tarefa_id IN (?) #{where_tecnico} #{where_status}", tarefas]
     )
     

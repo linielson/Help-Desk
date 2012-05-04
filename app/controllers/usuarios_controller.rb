@@ -2,7 +2,8 @@
 class UsuariosController < ApplicationController
   
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.order('id ASC').all
+
     respond_with @usuarios
   end
 
