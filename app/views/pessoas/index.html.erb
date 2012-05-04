@@ -10,7 +10,8 @@
     <div class="inner">
       <table class="table">
         <tr>
-          <th class="first">Código</th>
+          <th class="first"></th>
+          <th>Código</th>
           <th>Nome</th>
           <th>Telefone</th>
           <th>E-mail</th>
@@ -18,6 +19,7 @@
         </tr>
         <% @pessoas.each do |pessoa| %>
         <tr class="<%= cycle("odd", "even") %>">
+          <td><%= gravatar_image_tag pessoa.email %></td>
           <td align="center"><%= pessoa.id %></td>
           <td><%= link_to pessoa.nome.titleize, pessoa_path(pessoa) %></td>
           <td><%= pessoa.telefone %></td>

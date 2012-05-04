@@ -10,13 +10,15 @@
     <div class="inner">
       <table class="table">
         <tr>
-          <th class="first">Tipo</th>
+          <th class="first"></th>
+          <th>Tipo</th>
           <th>Nome</th>
           <th>E-mail</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @usuarios.each do |usuario| %>
         <tr class="<%= cycle("odd", "even") %>">
+          <td><%= gravatar_image_tag usuario.email %></td>
           <td><%= usuario.tipo_usuario %></td>
           <td><%= usuario.nome_completo.titleize %></td>
           <td><%= usuario.email %></td>

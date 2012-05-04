@@ -10,6 +10,10 @@
   <div class="content">
     <div class="inner">
       <p>
+        <%= gravatar_image_tag @pessoa.email %>
+      </p>
+
+      <p>
         <b>Nome:</b>
         <%= @pessoa.nome %>
       </p>
