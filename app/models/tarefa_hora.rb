@@ -13,7 +13,7 @@ protected
 
   def validar_horas
     if inicio > fim
-      errors.add(:inicio, "deve ser menor que a hora de término!")
+      errors.add(:inicio, "deve ser menor que a hora de término #{inicio} / #{fim}!")
     end
 
     if (inicio + 5.hour) < fim
