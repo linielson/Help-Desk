@@ -64,4 +64,11 @@ Helpdesk::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = {host: 'localhost:3000'}
+
+  config.action_mailer.raise_delivery_errors = true
+
+  config.time_zone = 'Brasilia'
+  config.active_record.default_timezone = :local
 end
