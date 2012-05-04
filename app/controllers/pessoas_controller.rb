@@ -4,7 +4,7 @@ class PessoasController < ApplicationController
   def index
     @pessoas = Pessoa.scoped
     @pessoas = Pessoa.pesquisar_por_id(params[:scodigo]) if params[:scodigo].present?
-    @pessoas = @pessoas.pesquisar_por_nome(params[:snome]).paginate page: params[:page], per_page: 10
+    @pessoas = @pessoas.pesquisar_por_nome(params[:snome]).paginate(page: params[:page], per_page: 10).order('id ASC')
     respond_with @pessoas
   end
 
