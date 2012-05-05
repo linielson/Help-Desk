@@ -2,10 +2,13 @@
 
 <div style="width: 100%; overflow-x: auto">
 
-  <% tamanho_total = tamanho_total_workflow tarefa%>
+  <% tamanho_total = tamanho_total_workflow tarefa, porcentagem%>
   <% pixels = numero_pixels_para_completar_workflow tarefa %>
 
-  <div style="float:left; width: <%= porcentagem ? "100%" : "#{tamanho_total}px" %>">
+ <%#  <div style="float:left; width: <%= porcentagem ? "100%" : "#{tamanho_total}px" % >; background-color: #eeeeef;"> %>
+
+ <div style="float:left; width: <%= tamanho_total %>; background-color: #eeeeef;">
+
 
   <% nao_possui_etapa_atrasada = true %>
   <% etapas.each do |etapa| %>
