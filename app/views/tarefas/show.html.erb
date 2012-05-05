@@ -80,8 +80,8 @@
 
       <div class="group navform wat-cf">
         <h3>Etapas</h3>
-
-        <%= render "tarefa_etapas/workflow", etapas: @tarefa.tarefa_etapas, pixels: @pixels, tamanho_total: @tamanho_total %>
+        <%= render "tarefa_etapas/workflow", tarefa: @tarefa,
+          etapas: @tarefa.tarefa_etapas, porcentagem: false %>
       </div>
 
       <p> </p>

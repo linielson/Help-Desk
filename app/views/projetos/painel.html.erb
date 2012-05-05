@@ -74,8 +74,7 @@
 
                   <tr id="linha_<%= projeto.id %>_<%= tarefa.id %>" style="display: none">
                     <td colspan="7" style="background-color: #eeeeef">
-                      <%= render "tarefa_etapas/workflow",
-                        etapas: tarefa.tarefa_etapas, pixels: 10, tamanho_total: 936 %>
+                      <%= render "tarefa_etapas/workflow", tarefa: tarefa, etapas: tarefa.tarefa_etapas, porcentagem: true %>
                     </td>
                   </tr>
 

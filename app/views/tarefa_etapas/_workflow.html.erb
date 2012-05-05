@@ -1,15 +1,11 @@
-<%= stylesheet_link_tag "workflow" %>
-
 <% if etapas.present? %>
 
+<div style="width: 100%; overflow-x: auto">
 
-<% if etapas.size > 10 %>
-  <div style="width: 996px; overflow-x: auto">
-<% else %>
-  <div style="width: 996px;">
-<% end %>
-  
-  <div style="float:left; width: <%= "#{tamanho_total}px"%>; ">
+  <% tamanho_total = tamanho_total_workflow tarefa%>
+  <% pixels = numero_pixels_para_completar_workflow tarefa %>
+
+  <div style="float:left; width: <%= porcentagem ? "100%" : "#{tamanho_total}px" %>">
 
   <% nao_possui_etapa_atrasada = true %>
   <% etapas.each do |etapa| %>
@@ -35,7 +31,7 @@
       <div id="linha_titulo">
         <%= truncate etapa.nome.titleize, length: 40 %>
       </div>
-      
+
       <div id="linha_tecnico">
         <%= truncate etapa.tecnico.nome_completo.titleize, length: 20 %>
       </div>
@@ -54,7 +50,7 @@
         Hora: <%= etapa.data_hora_fim.try :strftime, "%H:%M" %><br />
         Total: <%= etapa.total_horas %>
       </div>
-      
+
       <div id="linha_status">
         <span id="status_verde"> Concluída </span>
       </div>
@@ -135,7 +131,7 @@
 
         <div id="linha_titulo"> </div>
         <div id="linha_tecnico"> </div>
-        
+
         <% if etapa.concluida? %>
           <div id="pxVerde"> </div>
         <% else %>

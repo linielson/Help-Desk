@@ -2,7 +2,7 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first active"><%= link_to "Lista", tarefa_tarefa_etapas_path(@tarefa) %></li>
-      <li><%= link_to "Novo", new_tarefa_tarefa_etapa_path(@tarefa) %></li>
+      <li><%= link_to "Novo",  @tarefa.concluida? ? "" : new_tarefa_tarefa_etapa_path(@tarefa) %></li>
     </ul>
   </div>
   <div class="content">
