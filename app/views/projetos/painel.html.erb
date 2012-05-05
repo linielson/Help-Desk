@@ -57,13 +57,13 @@
                   <th>% Horas</th>
                 </tr>
                 <% projeto.tarefas.each do |tarefa| %>
-                  <tr class="<%= cycle("odd") %>">
+                <tr>
                     <td><%= image_tag("mais.png", id: "imagemMaisMenos_#{projeto.id}_#{tarefa.id}",
                          onclick: "fecha('linha_#{projeto.id}_#{tarefa.id}', 'imagemMaisMenos_#{projeto.id}_#{tarefa.id}');") %></td>
                     <td><%= tarefa.id %></td>
                     <td><%= l tarefa.emissao %></td>
                     <td><%= truncate tarefa.solicitacao, length: 40 %></td>
-                    <td><%= tarefa.status_nome %></td>
+                    <td><strong><%= tarefa.status_nome %></strong></td>
                     <td><%= tarefa.total_horas %></td>
                     <% if projeto.total_tempo_trabalhado > 0 %>
                       <td><%= "#{'%0.2f' % ((tarefa.total_tempo_trabalhado / projeto.total_tempo_trabalhado) * 100)}%"%></td>

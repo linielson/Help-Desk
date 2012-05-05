@@ -1,4 +1,4 @@
-/* Imagem Home */
+/* Imagem Home ****************************************************************/
 #direita{
   padding:0 40px 10px 20px;
   float:right;
@@ -17,7 +17,7 @@
 /* IMAGENS */
 /* ****************************************************************************/
 
-/* Pontos */
+/* Pontos *********************************************************************/
 
 #inicio_verde {
   background-image: url(inicio_verde.png);
@@ -139,7 +139,7 @@
   height: 48px
 }
 
-/* Pixels */
+/* Pixels *********************************************************************/
 
 #pxVerde {
   background-image: url(pxVerde.png);
@@ -155,7 +155,7 @@
 /* ETAPAS*/
 /* ****************************************************************************/
 
-/* Tabela Imagens */
+/* Tabela Imagens *************************************************************/
 #linha_titulo{
   color: #666666;
   font-weight: bold;
@@ -166,17 +166,12 @@
   clear:both;
   height:70px;
   width:104px;
-
-/*  border: 1px solid #000000;
-  background-color: red;*/
 }
 
 #linha_imagem{
   padding:0;
   clear:both;
   height:60px;
-  
-/*  border: 1px solid #000000;*/
 }
 
 #linha_tecnico{
@@ -188,7 +183,6 @@
   font-size: x-small;
   font-weight: bold;
 }
-
 
 #linha_data{
   text-align: center;
@@ -206,9 +200,6 @@
   clear:both;
   height:35px;
   font-size: x-small;
-
-/*  border: 1px solid #000000;
-  background-color: yellowgreen;*/
 }
 
 #linha_status{
@@ -216,9 +207,6 @@
   padding:0;
   clear:both;
   height:30px;
-
-/*  border: 1px solid #000000;
-  background-color: #0099FF;*/
 }
 
 #coluna{
@@ -228,8 +216,6 @@
   float:left;
   margin:0px;
   padding:0;
-  
-/*  border: 1px solid #000000;*/
 }
 
 #coluna_px{
@@ -238,11 +224,9 @@
   float:left;
   margin:0px;
   padding:0;
-
-/*  border: 1px solid #000000;*/
 }
 
-/* Status */
+/* Status *********************************************************************/
 
 #status_verde{
   color: #006600;
@@ -295,13 +279,6 @@
   margin-bottom: 15px;
   border-top: 1px solid #666666;
   border-bottom: 1px solid #666666;
-}
-
-.table_tarefa th {
-  padding: 10px;
-  font-weight: bold;
-  text-align: left;
-  font-weight: normal;
 }
 
 .table_tarefa td {
