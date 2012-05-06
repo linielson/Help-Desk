@@ -34,7 +34,7 @@
       <div class="group navform wat-cf">
         <h3>Etapas</h3>
 
-        <%= render "servico_etapas/etapas", etapas: @servico.servico_etapas %>
+        <%= render "servico_etapas/etapas", etapas: @servico.servico_etapas.order('id ASC') %>
       </div>
 
       <p> </p>

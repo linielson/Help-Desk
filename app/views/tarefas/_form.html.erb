@@ -1,29 +1,17 @@
   <div class="group">
-    <%= f.label "Técnico", class: :label %>
+    <%= f.label "Responsável", class: :label %>
     <%= text_field_tag 'tecnico', current_usuario.nome_completo, class: :text_field, disabled: true, style: 'width: 150px;' %>
   </div>
 
-  <% if @tarefa.aberta? %>
-    <div class="group">
-      <%= f.label :projeto_id, "Projeto", class: :label %>
-      <%= f.collection_select :projeto_id, @projetos, :id, :codigo_nome, prompt: true %>
-    </div>
+  <div class="group">
+    <%= f.label :projeto_id, "Projeto", class: :label %>
+    <%= f.collection_select :projeto_id, @projetos, :id, :codigo_nome, prompt: true %>
+  </div>
 
-    <div class="group">
-      <%= f.label :cliente_id, "Cliente", class: :label %>
-      <%= f.collection_select :cliente_id, @clientes, :id, :codigo_nome, prompt: true %>
-    </div>
-  <% else %>
-    <div class="group">
-      <%= f.label :projeto_id, "Projeto", class: :label %>
-      <%= f.collection_select :projeto_id, @projetos, :id, :codigo_nome, prompt: true, :disabled => 'restricted' %>
-    </div>
-
-    <div class="group">
-      <%= f.label :cliente_id, "Cliente", class: :label %>
-      <%= f.collection_select :cliente_id, @clientes, :id, :codigo_nome, prompt: true, disabled: true, :disabled => 'restricted' %>
-    </div>
-  <% end %>
+  <div class="group">
+    <%= f.label :cliente_id, "Cliente", class: :label %>
+    <%= f.collection_select :cliente_id, @clientes, :id, :codigo_nome, prompt: true %>
+  </div>
 
   <div class="group">
     <%= f.label :emissao, "Data de Emissão", class: :label %>

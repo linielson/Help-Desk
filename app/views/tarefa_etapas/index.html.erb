@@ -45,7 +45,9 @@
                 tarefa_tarefa_etapa_iniciar_path(@tarefa, etapa),
                 confirm: 'Você realmente deseja iniciar esta etapa agora?' %>
               <%= image_tag("pausar_d.png", alt: "Pausar", title: "Pausar") %>
-              <%= image_tag("concluir_d.png", alt: "Concluir", title: "Concluir") %>
+              <%= link_to image_tag("concluir.png", alt: "Concluir", title: "Concluir sem iniciar"),
+                tarefa_tarefa_etapa_concluir_path(@tarefa, etapa),
+                confirm: 'Atenção, se você concluir esta etapa sem iniciar, as horas não serão gravadas! Deseja continuar?' %>
             <% elsif etapa.em_andamento? %>
               <%= image_tag("iniciar_d.png", alt: "Iniciar", title: "Iniciar") %>
               <%= link_to image_tag("pausar.png", alt: "Pausar", title: "Pausar"),

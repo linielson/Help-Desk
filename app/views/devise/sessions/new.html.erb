@@ -3,6 +3,14 @@
   <h2>Autenticação</h2>
   <div class="content login">
 
+    <% if flash[:alert] %>
+      <div class="flash">
+        <div class="message warning">
+          <p><%= flash[:alert] %></p>
+        </div>
+      </div>
+    <% end %>
+
     <br />
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form login"}) do |f| %>
