@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class TarefasController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/tarefas_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-carregar_recursos">#carregar_recursos</a>
+    
+    <li><a href="#method-i-configurar_cliente_e_projeto">#configurar_cliente_e_projeto</a>
+    
+    <li><a href="#method-i-copiar_etapas_do_servico">#copiar_etapas_do_servico</a>
+    
+    <li><a href="#method-i-create">#create</a>
+    
+    <li><a href="#method-i-destroy">#destroy</a>
+    
+    <li><a href="#method-i-edit">#edit</a>
+    
+    <li><a href="#method-i-impressao">#impressao</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-iniciar">#iniciar</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-parametro_para_data">#parametro_para_data</a>
+    
+    <li><a href="#method-i-periodo_valido-3F">#periodo_valido?</a>
+    
+    <li><a href="#method-i-preparar_impressao_html">#preparar_impressao_html</a>
+    
+    <li><a href="#method-i-show">#show</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./NotificacaoMailer.html">NotificacaoMailer</a>
+  
+    <li><a href="./PagesController.html">PagesController</a>
+  
+    <li><a href="./PagesHelper.html">PagesHelper</a>
+  
+    <li><a href="./Pessoa.html">Pessoa</a>
+  
+    <li><a href="./PessoasController.html">PessoasController</a>
+  
+    <li><a href="./PessoasHelper.html">PessoasHelper</a>
+  
+    <li><a href="./Projeto.html">Projeto</a>
+  
+    <li><a href="./ProjetosController.html">ProjetosController</a>
+  
+    <li><a href="./ProjetosHelper.html">ProjetosHelper</a>
+  
+    <li><a href="./Recurso.html">Recurso</a>
+  
+    <li><a href="./RecursosController.html">RecursosController</a>
+  
+    <li><a href="./RecursosHelper.html">RecursosHelper</a>
+  
+    <li><a href="./RelatoriosController.html">RelatoriosController</a>
+  
+    <li><a href="./Servico.html">Servico</a>
+  
+    <li><a href="./ServicoEtapa.html">ServicoEtapa</a>
+  
+    <li><a href="./ServicoEtapasController.html">ServicoEtapasController</a>
+  
+    <li><a href="./ServicoEtapasHelper.html">ServicoEtapasHelper</a>
+  
+    <li><a href="./ServicosController.html">ServicosController</a>
+  
+    <li><a href="./ServicosHelper.html">ServicosHelper</a>
+  
+    <li><a href="./Tarefa.html">Tarefa</a>
+  
+    <li><a href="./TarefaAnexo.html">TarefaAnexo</a>
+  
+    <li><a href="./TarefaAnexosController.html">TarefaAnexosController</a>
+  
+    <li><a href="./TarefaAnexosHelper.html">TarefaAnexosHelper</a>
+  
+    <li><a href="./TarefaEtapa.html">TarefaEtapa</a>
+  
+    <li><a href="./TarefaEtapasController.html">TarefaEtapasController</a>
+  
+    <li><a href="./TarefaEtapasHelper.html">TarefaEtapasHelper</a>
+  
+    <li><a href="./TarefaHora.html">TarefaHora</a>
+  
+    <li><a href="./TarefaHorasController.html">TarefaHorasController</a>
+  
+    <li><a href="./TarefaHorasHelper.html">TarefaHorasHelper</a>
+  
+    <li><a href="./TarefasController.html">TarefasController</a>
+  
+    <li><a href="./TarefasHelper.html">TarefasHelper</a>
+  
+    <li><a href="./Usuario.html">Usuario</a>
+  
+    <li><a href="./UsuariosController.html">UsuariosController</a>
+  
+    <li><a href="./UsuariosHelper.html">UsuariosHelper</a>
+  
+    <li><a href="./Workflow.html">Workflow</a>
+  
+    <li><a href="./WorkflowsController.html">WorkflowsController</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TarefasController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:tarefa</span>])
+  <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">usuario_id</span> = <span class="ruby-identifier">current_usuario</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">tecnico_id</span> = <span class="ruby-identifier">current_usuario</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">status</span> = <span class="ruby-string">&quot;A&quot;</span>
+
+  <span class="ruby-identifier">copiar_etapas_do_servico</span> <span class="ruby-ivar">@tarefa</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">save</span>
+
+  <span class="ruby-identifier">configurar_cliente_e_projeto</span> <span class="ruby-ivar">@tarefa</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-node">&quot;Tarefa #{@tarefa.id} incluída com sucesso!&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tarefa</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tarefas_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">tecnico</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current_usuario</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">DeleteRestrictionError</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Atenção, esta etapa não pode ser excluído pois possui etapas!&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Atenção, você só pode excluir as suas tarefas!&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tarefa</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tarefas_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- destroy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- destroy-method -->
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit-method -->
+
+    
+      <div id="method-i-impressao" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">impressao</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="impressao-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">impressao</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">imprimir_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- impressao-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- impressao-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">scoped</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">pesquisar_por_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:scodigo</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:scodigo</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_tecnico</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:stecnico</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:stecnico</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_cliente</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:scliente</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:scliente</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_status</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:sstatus</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:sstatus</span>].<span class="ruby-identifier">present?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:emissao_inicio</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:emissao_fim</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span>
+     <span class="ruby-identifier">params</span>[<span class="ruby-value">:entrega_inicio</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:entrega_fim</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">periodo_valido?</span> <span class="ruby-value">:emissao_inicio</span>, <span class="ruby-value">:emissao_fim</span>
+      <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_emissao</span>(<span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:emissao_inicio</span>), <span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:emissao_fim</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">periodo_valido?</span> <span class="ruby-value">:entrega_inicio</span>, <span class="ruby-value">:entrega_fim</span>
+      <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_entrega</span>(<span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:entrega_inicio</span>), <span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:entrega_fim</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">'id DESC'</span>)
+
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tarefas</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-iniciar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iniciar</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="iniciar-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">iniciar</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:tarefa_id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">tarefa_etapas</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">projeto</span>.<span class="ruby-identifier">present?</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">projeto</span>.<span class="ruby-identifier">em_andamento?</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">tarefa_add_tarefa_path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-node">&quot;Atenção, antes de iniciar você deve dar inicio ao projeto (#{@tarefa.projeto.codigo_nome}) desta tarefa!&quot;</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">tarefas_path</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-node">&quot;Atenção, a tarefa #{@tarefa.id} não possui etapas. Inclua pelo menos uma etapa antes prosseguir!&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">tarefas_path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- iniciar-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- iniciar-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tarefa</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-i-preparar_impressao_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">preparar_impressao_html</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="preparar_impressao_html-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">preparar_impressao_html</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">scoped</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">pesquisar_por_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:scodigo</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:scodigo</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_tecnico</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:stecnico</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:stecnico</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_cliente</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:scliente</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:scliente</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_status</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:sstatus</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:sstatus</span>].<span class="ruby-identifier">present?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:emissao_inicio</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:emissao_fim</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span>
+     <span class="ruby-identifier">params</span>[<span class="ruby-value">:entrega_inicio</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:entrega_fim</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">periodo_valido?</span> <span class="ruby-value">:emissao_inicio</span>, <span class="ruby-value">:emissao_fim</span>
+      <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_emissao</span>(<span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:emissao_inicio</span>), <span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:emissao_fim</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">periodo_valido?</span> <span class="ruby-value">:entrega_inicio</span>, <span class="ruby-value">:entrega_fim</span>
+      <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">pesquisar_por_entrega</span>(<span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:entrega_inicio</span>), <span class="ruby-identifier">parametro_para_data</span>(<span class="ruby-value">:entrega_fim</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tarefas</span> = <span class="ruby-ivar">@tarefas</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">15</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">'id ASC'</span>)
+
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;impressao_html&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- preparar_impressao_html-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- preparar_impressao_html-method -->
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tarefa</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-ivar">@tarefa</span> = <span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">usuario_id</span> = <span class="ruby-identifier">current_usuario</span>.<span class="ruby-identifier">id</span>
+
+  <span class="ruby-identifier">copiar_etapas_do_servico</span> <span class="ruby-ivar">@tarefa</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:tarefa</span>])
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:tarefa</span>])
+    <span class="ruby-identifier">configurar_cliente_e_projeto</span> <span class="ruby-ivar">@tarefa</span>
+    <span class="ruby-ivar">@tarefa</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-node">&quot;Tarefa #{@tarefa.id} alterada com sucesso!&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@tarefa</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tarefas_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-carregar_recursos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">carregar_recursos</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="carregar_recursos-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">carregar_recursos</span>
+  <span class="ruby-ivar">@clientes</span> = <span class="ruby-constant">Pessoa</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">'id ASC'</span>).<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@tecnicos</span> = <span class="ruby-constant">Usuario</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">'id ASC'</span>).<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@servicos</span> = <span class="ruby-constant">Servico</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">'id ASC'</span>).<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@projetos</span> = <span class="ruby-constant">Projeto</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">'id ASC'</span>).<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>, <span class="ruby-identifier">conditions</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;status &lt;&gt; 'C'&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- carregar_recursos-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- carregar_recursos-method -->
+
+    
+      <div id="method-i-configurar_cliente_e_projeto" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configurar_cliente_e_projeto</span><span
+            class="method-args">(tarefa)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="configurar_cliente_e_projeto-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configurar_cliente_e_projeto</span> <span class="ruby-identifier">tarefa</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">projeto</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">cliente</span> = <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">projeto</span>.<span class="ruby-identifier">cliente</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- configurar_cliente_e_projeto-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- configurar_cliente_e_projeto-method -->
+
+    
+      <div id="method-i-copiar_etapas_do_servico" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copiar_etapas_do_servico</span><span
+            class="method-args">(tarefa)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copiar_etapas_do_servico-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copiar_etapas_do_servico</span> <span class="ruby-identifier">tarefa</span>
+  <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">servico</span>.<span class="ruby-identifier">servico_etapas</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">'id ASC'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">etapa</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-ivar">@tarefa_etapa</span> = <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">tarefa_etapas</span>.<span class="ruby-identifier">create</span>(
+      <span class="ruby-identifier">codigo</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">tarefa_etapas</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-string">'codigo'</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>,
+      <span class="ruby-identifier">nome</span><span class="ruby-operator">:</span> <span class="ruby-identifier">etapa</span>.<span class="ruby-identifier">nome</span>,
+      <span class="ruby-identifier">descricao</span><span class="ruby-operator">:</span> <span class="ruby-identifier">etapa</span>.<span class="ruby-identifier">descricao</span>,
+      <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;A&quot;</span>,
+      <span class="ruby-identifier">tecnico_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">tecnico_id</span>
+    )
+
+    <span class="ruby-identifier">etapa</span>.<span class="ruby-identifier">recursos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">recurso</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@tarefa_etapa</span>.<span class="ruby-identifier">recursos</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">recurso</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tarefa</span>.<span class="ruby-identifier">tarefa_etapas</span>.<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- copiar_etapas_do_servico-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- copiar_etapas_do_servico-method -->
+
+    
+      <div id="method-i-parametro_para_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parametro_para_data</span><span
+            class="method-args">(param)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parametro_para_data-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parametro_para_data</span> <span class="ruby-identifier">param</span>
+  <span class="ruby-node">&quot;#{params[param]['data(1i)']}-#{params[param]['data(2i)']}-#{params[param]['data(3i)']}&quot;</span>.<span class="ruby-identifier">to_date</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parametro_para_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parametro_para_data-method -->
+
+    
+      <div id="method-i-periodo_valido-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">periodo_valido?</span><span
+            class="method-args">(data_inicio, data_fim)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="periodo_valido-3F-source">
+            <pre><span class="ruby-comment"># File app/controllers/tarefas_controller.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">periodo_valido?</span> <span class="ruby-identifier">data_inicio</span>, <span class="ruby-identifier">data_fim</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-identifier">data_inicio</span>][<span class="ruby-string">'data(1i)'</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">data_inicio</span>][<span class="ruby-string">'data(2i)'</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-identifier">data_inicio</span>][<span class="ruby-string">'data(3i)'</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">data_fim</span>][<span class="ruby-string">'data(1i)'</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-identifier">data_fim</span>][<span class="ruby-string">'data(2i)'</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">data_fim</span>][<span class="ruby-string">'data(3i)'</span>].<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- periodo_valido-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- periodo_valido-3F-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

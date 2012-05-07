@@ -1,0 +1,11 @@
+rake doc:app -> Gerar Doc
+git push heroku master -> Enviar para o Heroku (caso o Heroku esteje instalado na mesma pasta do projeto)
+git push origin master -> Enviar para o Github
+git commit -a -m "mensagem" -> Commit
+
+
+sudo apt-get install graphviz
+
+Comando Git
+https://github.com/kernelscript/javeh/wiki
+

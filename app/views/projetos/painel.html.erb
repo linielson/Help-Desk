@@ -57,7 +57,7 @@
                   <th style="width: 50px" title="Total de Horas">T. Horas</th>
                   <th style="width: 50px" title="% em relação ao projeto">Horas %</th>
                 </tr>
-                <% projeto.tarefas.each do |tarefa| %>
+                <% projeto.tarefas.order('id ASC').each do |tarefa| %>
                 <tr>
                     <td><%= image_tag("mais.png", id: "imagemMaisMenos_#{projeto.id}_#{tarefa.id}",
                          onclick: "fecha('linha_#{projeto.id}_#{tarefa.id}', 'imagemMaisMenos_#{projeto.id}_#{tarefa.id}');") %></td>
