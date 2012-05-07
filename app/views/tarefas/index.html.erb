@@ -19,7 +19,7 @@
           <th>Cliente</th>
           <th>Emissão</th>
           <th>Entrega</th>
-          <th>Solicitação</th>
+          <th>Serviço</th>
           <th>Status</th>
           <th style="width: 130px">&nbsp;</th>
         </tr>
@@ -35,7 +35,7 @@
           <td><%= tarefa.cliente.nome.titleize %></td>
           <td><%= l tarefa.emissao %></td>
           <td><%= l tarefa.entrega %></td>
-          <td><%= truncate tarefa.solicitacao, length: 30 %></td>
+          <td><%= truncate tarefa.servico.nome.titleize, length: 30 %></td>
           <td style="width: 90px"><%= tarefa.status_nome %></td>
 
           <td class="last">
