@@ -23,7 +23,7 @@
 
        <div class="group">
         <%= label_tag "", "Técnico", class: :label %>
-        <%= select_tag "tecnico", options_from_collection_for_select(@tecnicos, :id, :nome_completo), prompt: 'Todos' %>
+        <%= select_tag "tecnico", options_from_collection_for_select(@tecnicos_gerente, :id, :nome_completo), prompt: 'Todos' %>
       </div>
 
       <div class="group">

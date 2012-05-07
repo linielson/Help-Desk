@@ -170,7 +170,7 @@ class RelatoriosController < ApplicationController
     where_status = "AND status <> 'C'"
 
     tarefas = Tarefa.all(
-      conditions: ["entrega <= ? #{where_status} #{where_servico} #{where_cliente}",
+      conditions: ["entrega < ? #{where_status} #{where_servico} #{where_cliente}",
         DateTime.now]
     )
 
@@ -210,6 +210,7 @@ class RelatoriosController < ApplicationController
   def carregar_recursos
     @clientes = Pessoa.all
     @tecnicos = Usuario.find_all_by_tipo "T"
+    @tecnicos_gerente = Usuario.find(:all, conditions: "tipo <> 'A'")
     @responsaveis = Usuario.all
     @servicos = Servico.all
   end
@@ -307,7 +308,7 @@ class RelatoriosController < ApplicationController
 
   def todos_os_tecnicos
     tecnicos = ""
-    Usuario.all(select: "id", conditions: ["tipo = 'T'"]).collect{ |t|
+    Usuario.all(select: "id", conditions: "tipo <> 'A'").collect{ |t|
       tecnicos += tecnicos == "" ? t.id.to_s : ", #{t.id.to_s}"
     }
     tecnicos
