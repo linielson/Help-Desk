@@ -21,7 +21,7 @@
           <th>Entrega</th>
           <th>Solicitação</th>
           <th>Status</th>
-          <th style="width: 130px" class="last">&nbsp;</th>
+          <th style="width: 130px">&nbsp;</th>
         </tr>
 
         <% @tarefas.each do |tarefa| %>
@@ -38,7 +38,7 @@
           <td><%= truncate tarefa.solicitacao, length: 30 %></td>
           <td style="width: 90px"><%= tarefa.status_nome %></td>
 
-          <td style="width: 130px" class="last">
+          <td class="last">
             <% if tarefa.aberta? %>
               <%= link_to image_tag("iniciar.png", alt: "Iniciar", title: "Iniciar"), tarefa_iniciar_path(tarefa), confirm: 'Esta ação dará inicio a execução desta tarefa. Já verificou todas as etapas? Você realmente deseja prosseguir?' %>
             <% elsif tarefa.em_andamento? %>

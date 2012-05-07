@@ -15,7 +15,7 @@
           <th>Técnico</th>
           <th>Descrição</th>
           <th>Status</th>
-          <th class="last">&nbsp;</th>
+          <th style="width: 120px">&nbsp;</th>
         </tr>
 
         <% pode_iniciar = true %>
@@ -24,7 +24,7 @@
           <td align="center"><%= etapa.codigo %></td>
           <td><%= etapa.nome.titleize %></td>
           <td><%= etapa.tecnico.nome_completo.titleize %></td>
-          <td><%= truncate etapa.descricao %></td>
+          <td><%= truncate etapa.descricao, length: 70 %></td>
           <td><%= etapa.status_nome %></td>
           
           <td class="last">

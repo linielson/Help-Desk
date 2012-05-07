@@ -17,17 +17,17 @@
           <th>Inicio</th>
           <th>Fim</th>
           <th>Status</th>
-          <th>Gastos Prev.</th>
-          <th>Gastos Efet.</th>
-          <th>Nº Tarefas</th>
-          <th>Total Horas</th>
-          <th>Horas/Tarefas</th>
+          <th title="Gastos Previstos">Gastos Prev.</th>
+          <th title="Gastos Efetivos">Gastos Efet.</th>
+          <th style="width: 60px">Nº Tarefas</th>
+          <th style="width: 50px" title="Total de Horas">T. Horas</th>
+          <th style="width: 50px" title="Média Horas por Tarefas">Hor/Tar</th>
         </tr>
         <% @projetos.each do |projeto| %>
           <tr class="<%= cycle("even") %>">
             <td><%= image_tag("mais.png", id: "imagemMaisMenos_#{projeto.id}",
                  onclick: "fecha('linha_#{projeto.id}', 'imagemMaisMenos_#{projeto.id}');") %></td>
-            <td><%= "#{projeto.id} - #{projeto.nome.titleize}" %></td>
+            <td><%= "#{projeto.id}-#{projeto.nome.titleize}" %></td>
             <td><%= projeto.cliente.nome.titleize %></td>
             <td><%= projeto.inicio.try :strftime, "%d/%m/%Y" %></td>
             <td><%= projeto.fim.try :strftime, "%d/%m/%Y" %></td>
@@ -51,10 +51,11 @@
                   <th class="first" style="width: 1px"></th>
                   <th>Tarefa</th>
                   <th>Emissão</th>
+                  <th>Serviço</th>
                   <th>Solicitação</th>
                   <th>Status</th>
-                  <th>Total Horas</th>
-                  <th>% Horas</th>
+                  <th style="width: 50px" title="Total de Horas">T. Horas</th>
+                  <th style="width: 50px" title="% em relação ao projeto">Horas %</th>
                 </tr>
                 <% projeto.tarefas.each do |tarefa| %>
                 <tr>
@@ -62,19 +63,20 @@
                          onclick: "fecha('linha_#{projeto.id}_#{tarefa.id}', 'imagemMaisMenos_#{projeto.id}_#{tarefa.id}');") %></td>
                     <td><%= tarefa.id %></td>
                     <td><%= l tarefa.emissao %></td>
+                    <td><%= tarefa.servico.nome.titleize %></td>
                     <td><%= truncate tarefa.solicitacao, length: 40 %></td>
                     <td><strong><%= tarefa.status_nome %></strong></td>
-                    <td><%= tarefa.total_horas %></td>
+                    <td align="center"><%= tarefa.total_horas %></td>
                     <% if projeto.total_tempo_trabalhado > 0 %>
-                      <td><%= "#{'%0.2f' % ((tarefa.total_tempo_trabalhado / projeto.total_tempo_trabalhado) * 100)}%"%></td>
+                      <td align="center"><%= "#{'%0.2f' % ((tarefa.total_tempo_trabalhado / projeto.total_tempo_trabalhado) * 100)}"%></td>
                     <% else %>
-                      <td>0</td>
+                      <td align="center">0</td>
                     <% end %>
                   </tr>
 
                   <tr id="linha_<%= projeto.id %>_<%= tarefa.id %>" style="display: none">
-                    <td colspan="7" style="background-color: #eeeeef">
-                      <%= render "tarefa_etapas/workflow", tarefa: tarefa, etapas: tarefa.tarefa_etapas, porcentagem: true %>
+                    <td colspan="8" style="background-color: #eeeeef">
+                      <%= render "tarefa_etapas/workflow", tarefa: tarefa, etapas: tarefa.tarefa_etapas.order('id ASC'), porcentagem: true %>
                     </td>
                   </tr>
 
