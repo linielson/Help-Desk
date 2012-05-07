@@ -54,7 +54,7 @@ class RelatoriosController < ApplicationController
       valor_maximo = maior_valor(valor_maximo, no_periodo, mes_anterior, ano_anterior)
     end
 
-    @grafico = relatorio_grafico dados, legenda, valor_maximo
+    @grafico = relatorio_grafico_bar dados, legenda, valor_maximo
     
     render action: "saida_01"
   end
@@ -73,10 +73,13 @@ class RelatoriosController < ApplicationController
     servicos = Servico.all(conditions: ["#{where_servico}"])
 
     @tarefas = []
-    dados = []
-    legenda = []
-    valor_maximo = 0
-    
+    dados_no_periodo = []
+    legenda_no_periodo = []
+    dados_mes_anterior = []
+    legenda_mes_anterior = []
+    dados_ano_anterior = []
+    legenda_ano_anterior = []
+   
     servicos.each do |servico|
       nome_do_servico = "#{servico.id}-#{Servico.find(servico.id).nome}"
 
@@ -84,15 +87,27 @@ class RelatoriosController < ApplicationController
       mes_anterior = numero_de_tarefas_num_periodo_por_servico(servico.id, where_cliente, where_tecnico, @data_inicio-1.month, @data_fim-1.month-1.day)
       ano_anterior = numero_de_tarefas_num_periodo_por_servico(servico.id, where_cliente, where_tecnico, @data_inicio-1.year, @data_fim-1.year)
 
-      legenda += [remover_acentos(nome_do_servico)]
-      dados << [no_periodo, mes_anterior, ano_anterior]
-
       @tarefas << [nome_do_servico, no_periodo, mes_anterior, ano_anterior]
 
-      valor_maximo = maior_valor(valor_maximo, no_periodo, mes_anterior, ano_anterior)
+      if no_periodo > 0
+        legenda_no_periodo += [remover_acentos(nome_do_servico)]
+        dados_no_periodo += [no_periodo]
+      end
+      
+      if mes_anterior > 0
+        legenda_mes_anterior += [remover_acentos(nome_do_servico)]
+        dados_mes_anterior += [mes_anterior]
+      end
+
+      if ano_anterior > 0
+        legenda_ano_anterior += [remover_acentos(nome_do_servico)]
+        dados_ano_anterior += [ano_anterior]
+      end
     end
 
-    @grafico = relatorio_grafico dados, legenda, valor_maximo
+    @graf_no_periodo = relatorio_grafico_pie dados_no_periodo, legenda_no_periodo, 'No período'
+    @graf_ha_um_mes = relatorio_grafico_pie dados_mes_anterior, legenda_mes_anterior, 'Há um mês'
+    @graf_ha_um_ano = relatorio_grafico_pie dados_ano_anterior, legenda_ano_anterior, 'Há um ano'
 
     render action: "saida_02"
   end
@@ -111,9 +126,12 @@ class RelatoriosController < ApplicationController
     clientes = Pessoa.all(conditions: ["#{where_cliente}"])
 
     @tarefas = []
-    dados = []
-    legenda = []
-    valor_maximo = 0
+    dados_no_periodo = []
+    legenda_no_periodo = []
+    dados_mes_anterior = []
+    legenda_mes_anterior = []
+    dados_ano_anterior = []
+    legenda_ano_anterior = []
 
     clientes.each do |cliente|
       nome_do_cliente = "#{cliente.id}-#{Pessoa.find(cliente.id).nome}"
@@ -122,15 +140,27 @@ class RelatoriosController < ApplicationController
       mes_anterior = numero_de_tarefas_num_periodo_por_cliente(cliente.id, where_tecnico, where_servico, @data_inicio-1.month, @data_fim-1.month-1.day)
       ano_anterior = numero_de_tarefas_num_periodo_por_cliente(cliente.id, where_tecnico, where_servico, @data_inicio-1.year, @data_fim-1.year)
 
-      legenda += [remover_acentos(nome_do_cliente)]
-      dados << [no_periodo, mes_anterior, ano_anterior]
-
       @tarefas << [nome_do_cliente, no_periodo, mes_anterior, ano_anterior]
 
-      valor_maximo = maior_valor(valor_maximo, no_periodo, mes_anterior, ano_anterior)
+      if no_periodo > 0
+        legenda_no_periodo += [remover_acentos(nome_do_cliente)]
+        dados_no_periodo += [no_periodo]
+      end
+
+      if mes_anterior > 0
+        legenda_mes_anterior += [remover_acentos(nome_do_cliente)]
+        dados_mes_anterior += [mes_anterior]
+      end
+
+      if ano_anterior > 0
+        legenda_ano_anterior += [remover_acentos(nome_do_cliente)]
+        dados_ano_anterior += [ano_anterior]
+      end
     end
 
-    @grafico = relatorio_grafico dados, legenda, valor_maximo
+    @graf_no_periodo = relatorio_grafico_pie dados_no_periodo, legenda_no_periodo, 'No período'
+    @graf_ha_um_mes = relatorio_grafico_pie dados_mes_anterior, legenda_mes_anterior, 'Há um mês'
+    @graf_ha_um_ano = relatorio_grafico_pie dados_ano_anterior, legenda_ano_anterior, 'Há um ano'
 
     render action: "saida_03"
   end
@@ -275,7 +305,7 @@ class RelatoriosController < ApplicationController
     texto
   end
 
-  def relatorio_grafico dados, legenda, valor_maximo
+  def relatorio_grafico_bar dados, legenda, valor_maximo
     Gchart.bar(
       data: dados,
       legend: legenda,
@@ -292,6 +322,21 @@ class RelatoriosController < ApplicationController
       axis_range: [[0, valor_maximo]]
     )
   end
+
+  def relatorio_grafico_pie dados, legenda, titulo
+    if dados.present?
+      Gchart.pie_3d(
+        title: titulo,
+        legend: legenda,
+        bg: {color: 'efefef', type: 'gradient', angle: 90},
+        theme: :thirty7signals,
+        labels: dados,
+        data: dados,
+        size: '900x200'
+      )
+    end
+  end
+
 
   def maior_valor(valor_maximo, no_periodo, mes_anterior, ano_anterior)
     if valor_maximo < no_periodo
