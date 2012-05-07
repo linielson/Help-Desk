@@ -45,13 +45,15 @@ class RelatoriosController < ApplicationController
       mes_anterior = numero_de_etapas_num_periodo_por_tecnico(tecnico.id, where_cliente, where_servico, @data_inicio-1.month, @data_fim-1.month-1.day)
       ano_anterior = numero_de_etapas_num_periodo_por_tecnico(tecnico.id, where_cliente, where_servico, @data_inicio-1.year, @data_fim-1.year)
 
-      legenda += [remover_acentos(nome_do_tecnico)]
+      if no_periodo > 0 or mes_anterior > 0 or ano_anterior > 0
+        legenda += [remover_acentos(nome_do_tecnico)]
 
-      dados << [no_periodo, mes_anterior, ano_anterior]
-      
-      @atendimentos << [nome_do_tecnico, no_periodo, mes_anterior, ano_anterior]
+        dados << [no_periodo, mes_anterior, ano_anterior]
 
-      valor_maximo = maior_valor(valor_maximo, no_periodo, mes_anterior, ano_anterior)
+        @atendimentos << [nome_do_tecnico, no_periodo, mes_anterior, ano_anterior]
+
+        valor_maximo = maior_valor(valor_maximo, no_periodo, mes_anterior, ano_anterior)
+      end
     end
 
     @grafico = relatorio_grafico_bar dados, legenda, valor_maximo
@@ -87,22 +89,27 @@ class RelatoriosController < ApplicationController
       mes_anterior = numero_de_tarefas_num_periodo_por_servico(servico.id, where_cliente, where_tecnico, @data_inicio-1.month, @data_fim-1.month-1.day)
       ano_anterior = numero_de_tarefas_num_periodo_por_servico(servico.id, where_cliente, where_tecnico, @data_inicio-1.year, @data_fim-1.year)
 
-      @tarefas << [nome_do_servico, no_periodo, mes_anterior, ano_anterior]
-
+      possui_tarefa = false
+      
       if no_periodo > 0
         legenda_no_periodo += [remover_acentos(nome_do_servico)]
         dados_no_periodo += [no_periodo]
+        possui_tarefa = true
       end
       
       if mes_anterior > 0
         legenda_mes_anterior += [remover_acentos(nome_do_servico)]
         dados_mes_anterior += [mes_anterior]
+        possui_tarefa = true
       end
 
       if ano_anterior > 0
         legenda_ano_anterior += [remover_acentos(nome_do_servico)]
         dados_ano_anterior += [ano_anterior]
+        possui_tarefa = true
       end
+
+      @tarefas << [nome_do_servico, no_periodo, mes_anterior, ano_anterior] if possui_tarefa
     end
 
     @graf_no_periodo = relatorio_grafico_pie dados_no_periodo, legenda_no_periodo, 'No período'
@@ -140,22 +147,27 @@ class RelatoriosController < ApplicationController
       mes_anterior = numero_de_tarefas_num_periodo_por_cliente(cliente.id, where_tecnico, where_servico, @data_inicio-1.month, @data_fim-1.month-1.day)
       ano_anterior = numero_de_tarefas_num_periodo_por_cliente(cliente.id, where_tecnico, where_servico, @data_inicio-1.year, @data_fim-1.year)
 
-      @tarefas << [nome_do_cliente, no_periodo, mes_anterior, ano_anterior]
+      possui_tarefa = false
 
       if no_periodo > 0
         legenda_no_periodo += [remover_acentos(nome_do_cliente)]
         dados_no_periodo += [no_periodo]
+        possui_tarefa = true
       end
 
       if mes_anterior > 0
         legenda_mes_anterior += [remover_acentos(nome_do_cliente)]
         dados_mes_anterior += [mes_anterior]
+        possui_tarefa = true
       end
 
       if ano_anterior > 0
         legenda_ano_anterior += [remover_acentos(nome_do_cliente)]
         dados_ano_anterior += [ano_anterior]
+        possui_tarefa = true
       end
+
+      @tarefas << [nome_do_cliente, no_periodo, mes_anterior, ano_anterior] if possui_tarefa
     end
 
     @graf_no_periodo = relatorio_grafico_pie dados_no_periodo, legenda_no_periodo, 'No período'
@@ -324,8 +336,7 @@ class RelatoriosController < ApplicationController
   end
 
   def relatorio_grafico_pie dados, legenda, titulo
-    if dados.present?
-      Gchart.pie_3d(
+    Gchart.pie_3d(
         title: titulo,
         legend: legenda,
         bg: {color: 'efefef', type: 'gradient', angle: 90},
@@ -333,8 +344,7 @@ class RelatoriosController < ApplicationController
         labels: dados,
         data: dados,
         size: '900x200'
-      )
-    end
+      ) if dados.present?
   end
 
 
