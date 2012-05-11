@@ -1,13 +1,12 @@
 ActionMailer::Base.smtp_settings = {
   :port                 => 587,
-  :address              => 'smtp.live.com',
+  :address              => 'smtp.asseinfo.com.br',
   :domain               => 'asseinfohelpdesk.herokuapp.com',
-  :user_name            => 'sendhelpdesk@live.com',
-  :password             => 'helpdesk',
+  :user_name            => 'testdesk@asseinfo.com.br',
+  :password             => 'senhateste123',
   :authentication       => 'plain',
   :enable_starttls_auto => true,
   :openssl_verify_mode  => 'none'
 }
-#'ahelpdesk@live.com',
 
 ActionMailer::Base.delivery_method = :smtp
