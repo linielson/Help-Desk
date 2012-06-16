@@ -23,7 +23,10 @@
       <th>Descrição</th>
       <th>Status</th>
     </tr>
-  <% @tarefa.tarefa_etapas.each do |etapa| %>
+
+    <%# order('id ASC')    tarefa.servico.servico_etapas.order('id ASC').each%>
+
+  <% @tarefa.tarefa_etapas.order('id ASC').each do |etapa| %>
     <tr>
       <td><%= etapa.codigo %></td>
       <td><%= etapa.nome.titleize %></td>

@@ -48,7 +48,7 @@ protected
   end
 
   def enviar_email_para_o_proximo_tecnico tarefa
-    tarefa_etapa = tarefa.tarefa_etapas.first(conditions: "status <> 'C'")
+    tarefa_etapa = tarefa.tarefa_etapas.order('id ASC').first(conditions: "status <> 'C'")
     NotificacaoMailer.proxima_etapa(tarefa_etapa).deliver
   end
 
@@ -60,7 +60,7 @@ protected
         tarefa_etapa = w.tarefa.tarefa_etapas.first(conditions: "status <> 'C'")
         NotificacaoMailer.tarefa_atrasada(tarefa_etapa).deliver
 
-        if w.tarefa.entrega.to_date < (DateTime.now - 4.day).to_date
+        if w.tarefa.entrega.to_date < (DateTime.now - 3.day).to_date
           NotificacaoMailer.alerta_tarefa(w.tarefa).deliver
         end
 
