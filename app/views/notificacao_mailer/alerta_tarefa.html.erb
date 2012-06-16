@@ -24,8 +24,6 @@
       <th>Status</th>
     </tr>
 
-    <%# order('id ASC')    tarefa.servico.servico_etapas.order('id ASC').each%>
-
   <% @tarefa.tarefa_etapas.order('id ASC').each do |etapa| %>
     <tr>
       <td><%= etapa.codigo %></td>
