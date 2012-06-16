@@ -93,7 +93,7 @@ class TarefaEtapasController < ApplicationController
 protected
 
   def carregar_recursos
-    @tecnicos = Usuario.find_all_by_tipo "T"
+    @tecnicos = Usuario.find(:all, conditions: "tipo <> 'A'")
     @recursos = Recurso.all
   end
 

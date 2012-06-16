@@ -1,0 +1,8 @@
+rake doc:app -> Gerar Doc
+git push heroku master -> Enviar para o Heroku (caso o Heroku esteje instalado na mesma pasta do projeto)
+git push origin master -> Enviar para o Github
+git commit -a -m "mensagem" -> Commit
+
+Comando Git
+https://github.com/kernelscript/javeh/wiki
+

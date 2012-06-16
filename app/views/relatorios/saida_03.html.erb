@@ -42,9 +42,15 @@
 
       <hr />
       <br />
-      <%= image_tag @grafico, alt: "Número de tarefas por cliente" %>
-      <br />
-      <br />
+      <% if @graf_no_periodo.present? %>
+        <%= image_tag @graf_no_periodo %>
+      <% end %>
+      <% if @graf_ha_um_mes.present? %>
+        <%= image_tag @graf_ha_um_mes %>
+      <% end %>
+      <% if @graf_ha_um_ano.present? %>
+        <%= image_tag @graf_ha_um_ano %>
+      <% end %>
 
       <div class="wat-cf">
         <%= link_to image_tag("voltar.png", alt: "Voltar") + " Voltar", index_03_path, class: "text_button_padding button" %>

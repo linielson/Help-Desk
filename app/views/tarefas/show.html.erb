@@ -15,7 +15,7 @@
       </p>
 
       <p>
-        <b>Técnico:</b>
+        <b>Responsável:</b>
         <%= @tarefa.tecnico.nome_completo.titleize %>
       </p>
 
@@ -81,7 +81,7 @@
       <div class="group navform wat-cf">
         <h3>Etapas</h3>
         <%= render "tarefa_etapas/workflow", tarefa: @tarefa,
-          etapas: @tarefa.tarefa_etapas, porcentagem: false %>
+          etapas: @tarefa.tarefa_etapas.order('id ASC'), porcentagem: false %>
       </div>
 
       <p> </p>
