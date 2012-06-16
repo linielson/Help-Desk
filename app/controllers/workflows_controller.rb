@@ -57,7 +57,7 @@ protected
 
     workflows.each do |w|
       if w.tarefa.esta_atrasada?
-        tarefa_etapa = w.tarefa.tarefa_etapas.first(conditions: "status <> 'C'")
+        tarefa_etapa = w.tarefa.tarefa_etapas.order('id ASC').first(conditions: "status <> 'C'")
         NotificacaoMailer.tarefa_atrasada(tarefa_etapa).deliver
 
         if w.tarefa.entrega.to_date < (DateTime.now - 3.day).to_date
